@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>登录页面</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/his.css"/>
+	</head>
+	<body class="login-color">
+		<div class="container">
+			<div class="col-sm-5 middle loginCss">
+				<div class="row">
+					<div class="col-sm-12 ul-nav">
+				    	<div class="row">
+				    		<ul id="myTab" class="nav nav-tabs mynav text-center">
+							   <li class="active"><a href="#home" data-toggle="tab">扫描登录</a></li>
+							   <li><a href="#ios" data-toggle="tab">密码登录</a></li>
+							   <li><a href="#jmeter" data-toggle="tab">验证码登录</a></li>
+							</ul>
+				    	</div>				    	
+				    </div>
+				    <div id="myTabContent" class="tab-content">
+					   <div class="tab-pane fade in active" id="home">
+					      <p>Tutorials Point is a place for beginners in all technical areas. 
+					         This website covers most of the latest technoligies and explains 
+					         each of the technology with simple examples. You also have a 
+					         <b>tryit</b> editor, wherein you can edit your code and 
+					         try out different possibilities of the examples.</p>
+					   </div>
+					   <div class="tab-pane fade" id="ios">
+					      <div class="col-sm-12">
+					      	<div class="row">
+					      		<div class="col-sm-10 middle">
+					      			<div class="col-sm-4 middle sm3-logo">
+					      				<div class="row">
+					      					<img src="img/logo_07.jpg" class="img-responsive center-block" alt="logo" />
+					      				</div>
+					      			</div>
+					      			<div class="col-sm-11 middle">
+					      				<div class="row">
+					      					<form class="form-horizontal" role="form">					      				
+							      				<div class="form-group">
+											     <div class="col-sm-4">
+											     	<select class="form-control">
+												         <option>+861</option>
+												         <option>+880</option>
+												         <option>+66</option>
+												         <option>+56</option>
+											        </select>
+											     </div>										      
+										      	 <div class="col-sm-8 ">
+										           <input name="txtuser" type="text" class="form-control" id="firstname" placeholder="请输入手机号">
+										         </div>								     
+											    </div>
+											    <div class="form-group">
+											    	<div class="col-sm-12">
+											           <input name="txtpwd" type="text" class="form-control" id="firstname" placeholder="请输入密码">
+											        </div>
+											    </div>
+											    <div class="form-group">
+											    	<div class="col-sm-12">
+											           <button type="button" id="btn" class="btn btn-block btn-warning">登录</button>
+											        </div>
+											    </div>
+							      			</form>
+					      				</div>				      				
+					      			</div>					      			
+					      		</div>
+					      	</div>
+					      </div>
+					   </div>
+					   <div class="tab-pane fade" id="jmeter">
+					      <p>jMeter is an Open Source testing software. It is 100% pure 
+					      Java application for load and performance testing.</p>
+					   </div>					   
+					</div>
+				</div>
+		    </div>
+		</div>		
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>		
+		<script >
+			$(function () {
+		      $('#myTab li:eq(1) a').tab('show');
+		      
+		      //登录请求
+		      /*$("#btn").click(function(){
+		      	$.ajax({
+		      		type:"post",
+		      		url:"",
+		      		async:true,
+		      		datatype:JSON,
+		      		
+		      	});
+		      });*/
+		      
+		      $("form").submit(function () {
+		      	alert()
+		        if ($("input[name='txtuser']").val() == "") {
+		            alert("用户名不能为空");
+		            return false;
+		        }
+		        else if ($("input[name='txtpwd']").val() == "") {
+		            alert("密码不能为空");
+		            return false;
+		        }     
+		        else {
+		            $.ajax({
+		                type: "post",
+		                url: "Login.ashx",
+		                async: false,
+		                data: { UserName: $("input[name='txtuser']").val(),
+		                    PWD: $("input[name='txtpwd']").val(),
+		                    //Code: $("input[name='validation']").val()
+		                },
+		                success: function (data, status) {
+		                    var types = data;
+		                    if (types.toString() != "登录成功") {
+		                        alert(data);
+		                    }
+		                    else{
+		                    window.location.href="main.aspx";
+		                    }
+		                },
+		                error: function () { alert("用户名密码验证失败") }
+		                
+		            });
+		        }
+		    });
+
+
+
+		   });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+ALTER TABLE `his_fy_test`.`his_statement_item_detail` ADD COLUMN `if_formal` INT(11) NULL COMMENT '是否是正式处置项' AFTER `tooth`; 
+
+分院新建POS表
+CREATE TABLE `his_fy_test`.`his_pos_details`( `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT 'id', `pos_name` VARCHAR(32) COMMENT 'POS名称', `bank_name` VARCHAR(32) COMMENT '银行名称', `bank_no` VARCHAR(32) COMMENT '银行账户', `unit_code` INT(11) COMMENT '分院码', PRIMARY KEY (`id`) ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_general_ci; 
+POS表新增字段
+ALTER TABLE `his_fy_test`.`his_pos_details` ADD COLUMN `status` INT(11) NULL COMMENT '0无效，1有效' AFTER `unit_code`; 

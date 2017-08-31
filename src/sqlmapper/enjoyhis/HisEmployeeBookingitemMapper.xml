@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.enjoyhis.persistence.his.dao.HisEmployeeBookingitemMapper">
+	<resultMap id="BaseResultMap" type="com.enjoyhis.persistence.his.po.HisEmployeeBookingitem">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="employee_id" property="employeeId" jdbcType="BIGINT" />
+		<result column="item_name" property="itemName" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, employee_id, item_name
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from his_employee_bookingitem
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from his_employee_bookingitem
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.enjoyhis.persistence.his.po.HisEmployeeBookingitem">
+		insert into his_employee_bookingitem (id, employee_id, item_name
+		)
+		values (#{id,jdbcType=INTEGER}, #{employeeId,jdbcType=BIGINT}, #{itemName,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.enjoyhis.persistence.his.po.HisEmployeeBookingitem">
+		insert into his_employee_bookingitem
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="employeeId != null">
+				employee_id,
+			</if>
+			<if test="itemName != null">
+				item_name,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="employeeId != null">
+				#{employeeId,jdbcType=BIGINT},
+			</if>
+			<if test="itemName != null">
+				#{itemName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.enjoyhis.persistence.his.po.HisEmployeeBookingitem">
+		update his_employee_bookingitem
+		<set>
+			<if test="employeeId != null">
+				employee_id = #{employeeId,jdbcType=BIGINT},
+			</if>
+			<if test="itemName != null">
+				item_name = #{itemName,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.enjoyhis.persistence.his.po.HisEmployeeBookingitem">
+		update his_employee_bookingitem
+		set employee_id = #{employeeId,jdbcType=BIGINT},
+		item_name = #{itemName,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 同一个医生只保存10条 -->
+	<delete id="deleteByDoctorId" parameterType="java.lang.Long">
+		delete from his_employee_bookingitem
+		where employee_id = #{doctorId,jdbcType=BIGINT}
+		and id &lt; #{id,jdbcType=INTEGER}
+	</delete>
+
+	<select id="findList" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from his_employee_bookingitem
+		where employee_id = #{doctorId,jdbcType=BIGINT}
+		order by id asc
+	</select>
+
+	<select id="selectByBean" resultMap="BaseResultMap" parameterType="com.enjoyhis.persistence.his.po.HisEmployeeBookingitem">
+		select
+		<include refid="Base_Column_List" />
+		from his_employee_bookingitem
+		<where>
+			<if test="id != null">
+				and id = #{id,jdbcType=BIGINT}
+			</if>
+			<if test="employeeId != null">
+				and employee_id = #{employeeId,jdbcType=BIGINT}
+			</if>
+			<if test="itemName != null">
+				and item_name = #{itemName,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+
+</mapper>

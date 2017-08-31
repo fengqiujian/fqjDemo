@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>常用处置</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>		
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-10">
+					<!--table START-->
+					<table class="table table-bordered">					 
+					   <thead>
+					      <tr>
+					         <th>处置名称</th>
+					         <th>单位</th>
+					         <th>单价</th>
+					         <th>操作</th>
+					         <th>数量</th>					        				        
+					      </tr>
+					   </thead>
+					   <tbody>
+					      <tr>
+					         <td>松动后牙拔出</td>
+					         <td>个</td>
+					         <td>￥<i>100</i></td>
+					         <td><input type="checkbox" name="up" id="" value="" /></td>
+					         <td>Bangalore</td>					      				         			        
+					      </tr>
+					      <tr>
+					         <td>下班口保持器</td>
+					         <td>个</td>
+					         <td>￥<i>100</i></td>
+					         <td><input type="checkbox" name="up" id="" value="" /></td>
+					         <td>Mumbai</td>					        				         				    
+					      </tr>
+					      <tr>
+					         <td>锯齿拔出(上牙)</td>
+					         <td>个</td>
+					         <td>￥<i>100</td>
+					         <td><input type="checkbox" name="up" id="" value="" /></td>
+					         <td>Pune</td>					    				         			         
+					      </tr>
+					      <tr>
+					         <td>开包缝合费</td>
+					         <td>次</td>
+					         <td>￥<i>240</i></td>
+					         <td><input type="checkbox" name="up" id="" value="" /></td>
+					         <td>Pune</td>					    				         			         
+					      </tr>
+					      <tr>
+					         <td>超声波洁牙</td>
+					         <td>次</td>
+					         <td>￥<i class="price" price="50">50</i></td>
+					         <td><input type="checkbox" name="up" id="" value="" /></td>
+					         <td>
+					         	<div class="col-sm-1">
+					         		<div class="row">
+					         			<button type="button" class="btn btn-block min">-</button>
+					         		</div>
+					         	</div>					         	
+					         	<div class="col-sm-2" style="margin: 0 5px;">
+					         		<div class="row">
+					         			<input class="form-control" type="text" name="" id="" value="1" />
+					         		</div>
+					         	</div>
+					         	<div class="col-sm-1">
+					         		<div class="row">
+					         			<button type="button" class="btn btn-block add">+</button>
+					         		</div>
+					         	</div>
+					         </td>					    				         			         
+					      </tr>
+					       <tr class="danger">
+					         <td>抛光喷洒</td>
+					         <td>次</td>
+					         <td>￥<i class="price" price="200">200</i></td>
+					         <td><input type="checkbox" name="up" id="val" value="" /></td>
+					         <td>
+					         	<div class="col-sm-1">
+					         		<div class="row">
+					         			<button type="button" class="btn btn-block min">-</button>
+					         		</div>
+					         	</div>					         	
+					         	<div class="col-sm-2" style="margin: 0 5px;">
+					         		<div class="row">
+					         			<input class="form-control" type="text" name="" id="" value="1" />
+					         		</div>
+					         	</div>
+					         	<div class="col-sm-1">
+					         		<div class="row">
+					         			<button type="button" class="btn btn-block add">+</button>
+					         		</div>
+					         	</div>
+					         </td>					    				         			         
+					       </tr>					      
+					   </tbody>
+					</table>
+					<!--table END-->	
+					<div class="col-sm-6 middle">
+						<div class="row">
+							<div class="col-sm-5">
+								<button type="button" class="btn btn-block btn-success">清空</button>
+							</div>
+							<div class="col-sm-5">
+								<button type="button" data-type="5" class="btnend btn btn-block btn-success">完成</button>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-2.1.4.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>
+		<script>
+			var student=[
+            {"name":"博丽灵梦","age":"未知","live":"博丽神社"},
+            {"name":"雾雨魔理沙","age":"未知","live":"魔法之森"}
+           ]
+	        $(function(){
+	            $.ajax({
+					url:"demojson.txt",
+					type:'POST',
+					async:false,
+					dataType:'json',
+					success:function(data,textStatus,XMLHttpRequest){					
+		           	    	$.each(student,function(i,data){ 
+		                    	$("tbody").append(
+		                   	 	"<tr><td>"+data.name+
+		                    	"</td><td>"+data.age+
+		                    	"</td><td>"+data.live+
+		                    	"</td><td>"+'<input class="form-control" type="text" name="" id="" value="1" />'+
+		                    	"</td><td>"+'<div class="col-sm-1"><div class="row"><button type="button" class="btn btn-block min">-</button></div></div><div class="col-sm-2" style="margin: 0 5px;"><div class="row"><input class="form-control" type="text" name="" id="" value="1" /></div></div><div class="col-sm-1"><div class="row"><button type="button" class="btn btn-block add">+</button></div></div>'
+		                    	+"</td></tr>"
+		                      	)
+		                	});
+						}
+				});
+				
+				//计算单价 、数量	加				
+				$(".add").click(function(){
+                 var sumInput=$(this).parent().parent().siblings().find('input[class*=form-control]');//数量标签
+                 var sum = sumInput.val()*1;
+                 var price=$(this).parent().parent().parent().siblings().find("i").attr("price"); //单价
+                 //alert(price);
+                 sum=sum+1; //   数量+1  
+                 sumInput.val(sum);//数量的值
+                 $(this).parent().parent().siblings('.col-sm-1').find('button').attr('disabled',false);//减号按钮恢复可用
+                 $(this).parent().parent().parent().siblings().find("i").text(price*sum);//价格
+                });
+                
+                //减号
+                $(".min").click(function(){
+                 var sumInput=$(this).parent().parent().siblings().find('input[class*=form-control]');//数量标签
+                 var sum = sumInput.val()*1;
+                 var price=$(this).parent().parent().parent().siblings().find("i").attr("price")*1; //单价
+                 if(sum>=1){
+                 	sum=sum-1;
+                 	sumInput.val(sum);
+                 	if(sum==0)
+                 		$(this).attr('disabled',true);
+                 	$(this).parent().parent().parent().siblings().find("i").text(price*sum);//价格     
+                 }
+                                 
+                });
+                
+               //获取td的值
+               $("#val").on("click",function(){
+               //alert($(this).parent().html());	
+               });
+                             
+            });            
+		</script>
+	</body>
+</html>

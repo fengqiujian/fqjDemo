@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>折扣方案编辑</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+		<style type="text/css">
+			ul li{list-style: none;}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12" style="margin-top: 15px;">
+					<div class="container-fluid ">
+			   			<div class="row">				   						   				
+			   				<div class="col-md-2">
+			   					<div class="row">			   						
+		   							<ol class="breadcrumb text-center" style="background: none;">
+									    <li><a href="#">返回</a></li>
+									    <li><a href="#">折扣方案编辑</a></li>										 
+									</ol> 			   						
+			   				    </div>	
+			   			    </div>	   				
+			   		    </div>
+			   		<hr />			   		
+			   			<!--底部表格 START-->
+			   			<div class="col-md-12 table-responsive">
+			   				<div class="row">
+			   					<form class="form-horizontal" role="form">
+			   					<div class="col-md-9">
+			   						<div class="col-sm-12 form-group">								    	
+							    		<label  class="col-sm-2 control-label" style="margin-left: 4px;">方案名称</label>
+									    <div class="col-sm-5">
+									        <input type="text" class="form-control" name="" id="" value="" placeholder="输入折扣方案名称" />
+									    </div>						    						      
+								    </div>
+								    <div class="col-sm-12 form-group">								    	
+							    		<label  class="col-sm-2 control-label" style="margin-left: 4px;">选择活动</label>
+									    <div class="col-sm-5">
+									        <select class="form-control">
+									        	<option>请选择</option>
+									        	<option>1</option>
+									        	<option>2</option>
+									        	<option>3</option>
+									        	<option>4</option>
+									        </select>
+									    </div>						    						      
+								    </div>
+								    <div class="col-sm-12 ">
+								    	<div class="form-group">
+								    		<label  class="col-sm-2 control-label" >折扣项目</label>
+											    <div class="col-sm-10 table-responsive" style="overflow: auto;height: 240px;">
+											        <table class="table table-bordered" style="word-break:break-all; word-wrap:break-all;">						  
+													    <thead>
+													      <tr>
+													         <th>折扣方式</th>
+													         <th>处置项</th>
+													         <th>折扣金额</th>
+													         <th>计入金额</th>
+													         <th>使用次数</th>
+													         <th>操作</th>													        	
+													      </tr>
+													    </thead>
+													    <tbody>													      
+													      <tr class="mytr">							      
+													        <td colspan="6">
+													        	<div class="col-sm-3 addtable">
+													        		<div class="row">
+													        			<button type="button"  class="btn btn-block btn-success" data-toggle="modal" data-target="#myModal">新增项目</button>
+													        		</div>						        		
+													        	</div>
+													        </td>								        
+													      </tr>
+													    </tbody>
+													</table>											
+											   </div>
+								    	</div>							      
+								    </div>	
+								    <div class="col-sm-12 form-group">
+								    	<div class="col-md-6">
+								    		<label  class="col-sm-4 control-label">开始时间</label>
+										    <div class="col-sm-8">
+										        <input type="text" class="form-control" name="" id="date" value="" placeholder="2016-01-29" />
+										    </div>
+								    	</div>	
+								    	<div class="col-md-6">
+								    		<label  class="col-sm-4 control-label" style="">截止时间</label>
+										    <div class="col-sm-8">
+										        <input type="text" class="form-control" name="" id="date1" value="" placeholder="2017-01-29" />
+										    </div>
+								    	</div>	
+								    </div>
+								    <div class="col-sm-12 form-group">
+								    	<label  class="col-sm-2 control-label" style="margin-left:12px;">适用人群</label>
+								    	<div class="checkbox">
+									        <label>
+									            <input type="checkbox">适用于所有人
+									        </label>
+									    </div> 
+								    </div>
+			   					</div>
+			   			<!--左边表格 END-->
+			   			<!--右边菜单strat-->
+			   			 <div class="col-md-3">
+			   			 	<div class="col-sm-10">
+			   			 		<div class="row">
+			   			 			<div class="col-sm-3" style="line-height: 40px; padding: 0;">
+			   			 			适用院区
+				   			 		</div>
+				   			 		<div class="col-sm-4">
+				   			 			<button type="button" id="checkedall" class="btn btn-block btn-success">全选</button>
+				   			 		</div>
+				   			 		<div class="col-sm-5">
+				   			 			<button type="button" id="play" class="btn btn-block btn-success">全部展开</button>
+				   			 		</div>
+			   			 		</div>			   			 		
+			   			 	</div>
+			   			 	<div class="col-sm-9 border-all" style="padding:15px 0 15px; margin-top: 10px;height: 400px;overflow: auto;">
+			   			 		<div class="col-sm-12">
+			   			 			<ul class="nav nav-pills nav-stacked">
+										<li class="active">										
+											<a class="clock" href="#none">
+												<b class="caret"></b> 
+										        <label>
+										            <input name="items" type="checkbox">北京
+										        </label>
+											</a>
+											<ul class="level2 " style="display:none ;">
+												<li>
+													<a class="clock" href="#none">									 
+												        <label>
+												            <input name="items" type="checkbox">总店
+												        </label>
+													</a>
+												</li>
+												<li>
+													<a class="clock" href="#none">									 
+												        <label>
+												            <input name="items" type="checkbox">朝阳店
+												        </label>
+													</a>
+												</li>
+												<li>
+													<a class="clock" href="#none">									 
+												        <label>
+												            <input name="items" type="checkbox">西直门店
+												        </label>
+													</a>
+												</li>							
+											</ul>
+										</li>
+										<li class="active">										
+											<a class="clock" href="#none">
+												<b class="caret"></b> 
+										        <label>
+										            <input name="items" type="checkbox">沈阳
+										        </label>
+											</a>
+											<ul class="level2 " style="display:none ;">
+												<li>
+													<a class="clock" href="#none">									 
+												        <label>
+												            <input name="items" type="checkbox">大东店
+												        </label>
+													</a>
+												</li>			
+											</ul>
+										</li>
+									</ul>
+			   			 		</div>
+			   			 	</div>
+			   			 </div>
+			   			<!--右边菜单end-->
+			   			
+							<!--底部提交按钮start-->
+							  <div class="col-sm-12">
+								  <div class="col-sm-2 col-sm-offset-3">
+									  <button class="btn btn-block btn-success">确定</button>
+								  </div>
+								  <div class="col-sm-2">
+									  <button class="btn btn-block btn-success">取消</button>
+								  </div>
+							  </div>
+							<!--底部提交按钮end-->
+			   			 </form>
+			   			</div>
+			   		</div>	  					
+				</div>				
+			</div>
+		</div>	
+		<!--新增项目模态框start-->
+		 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  data-backdrop ="static">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title text-center" id="myModalLabel">新增处置项</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<div class="container-fluid">		            		
+	            			<div class="col-sm-12" style="margin-bottom: 15px;">
+	            				<label  class="col-sm-3 control-label" style="margin-top: 7px;">折扣方式</label>
+							    <div class="col-sm-7">
+							        <select  class="form-control">
+							        	 <option>请选择</option>
+								         <option>整单收费-固定金额</option>
+								         <option>某处置项目-固定金额</option>								         					 
+								    </select>
+							    </div>		            				
+	            			</div>	
+	            			<div class="col-sm-12" style="margin-bottom: 15px;">
+	            				<label  class="col-sm-3 control-label" style="margin-top: 7px;">处置项</label>
+							    <div class="col-sm-7">
+							    	<div class="input-group">     
+									    <select  class="form-control">
+								        	<option>请选择</option>
+									        <option>整单收费-固定金额</option>
+									        <option>某处置项目-固定金额</option>								         					 
+									    </select>	
+								      <div class="input-group-addon" data-toggle = "modal" data-target =".bs-example-modal-lg">请选择</div>
+								    </div>
+							    </div>							   
+	            			</div>		
+	            			<div class="col-sm-12" style="margin-bottom: 15px;">
+	            				<label  class="col-sm-3 control-label" style="margin-top: 7px;">折扣金额</label>
+							    <div class="col-sm-7">
+							        <input class="form-control" type="text" name="" id="" value="" placeholder="折扣的固定金额" />
+							    </div>		            				
+	            			</div>	
+	            			<div class="col-sm-12" style="margin-bottom: 15px;">
+	            				<label  class="col-sm-3 control-label" style="margin-top: 7px;">计入金额</label>
+							    <div class="col-sm-7">
+							        <input class="form-control" type="text" name="" id="" value="" placeholder="计入薪资的流水" />
+							    </div>		            				
+	            			</div>
+	            			<div class="col-sm-12" style="margin-bottom: 15px;">
+	            				<label  class="col-sm-3 control-label" style="margin-top: 7px;">使用次数</label>
+							    <div class="col-sm-7">
+							        <input class="form-control" type="text" name="" id="" value="" placeholder="输入可使用次数" />
+							    </div>		            				
+	            			</div>	
+		            	</div>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default btn-sure">确定</button>
+		                <button type="button" class="btn btn-primary btn-del">取消</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div> 
+		<!--新增项目模态框end-->
+		<!--选择处置项 模态框（Modal） -->
+		<div class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mylargeModalLabel" aria-hidden="true" data-backdrop="static">
+        	<div class="modal-dialog modal-lg">
+        		<div class="modal-content">
+        			<div class="col-sm-12" style="z-index: 100;margin-bottom: 10px;padding: 0;">				 								   			
+		   			<!--table START-->
+			   			<div class="col-sm-12" style="background-color: #F5F5F5;">		   				
+		   					<div class="container-fluid text-center">
+		   						<h3>选择处置项</h3>
+		   					</div>			   					
+		   					<br class="clear" />
+		   					<div class="col-sm-3">
+		   						<div class="col-sm-12" style="margin-bottom: 10px;">
+			   						<div class="row">
+			   							<div class="col-sm-3 " style="margin-right: 5px;">
+					   						<div class="row">
+					   							<button type="button" id="" class="btn btn-block btn-success all" data-name="item">全选</button>
+					   						</div>
+					   					</div>
+					   					<div class="col-sm-3 " style="margin-right: 5px;">
+					   						<div class="row">
+					   							<button type="button" id="" class="btn btn-block btn-success invert" data-name="item">反选</button>
+					   						</div>				   				
+					   					</div>
+					   					<div class="col-sm-3 ">
+					   						<div class="row">
+					   							<button type="button" id="blanks2" class="btn btn-block btn-success blanks" data-name="item">清空</button>
+					   						</div>
+					   					</div>
+					   				</div>
+					   			</div>
+		   						<div class="col-sm-12 allborder addoverflow" style="height: auto;margin-right:15px ;">		   			 						    	
+						    		<ul class="nav nav-pills nav-stacked bigtabbtn" id="bigtabbtn">
+									  <li>
+										<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">常用处置
+									        </label>
+										</a>
+									  </li>				
+									   <li>
+									   	<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">检查类
+									        </label>
+										</a>
+									   </li>
+									   <li>
+									   	<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">一般治疗
+									        </label>
+										</a>
+									   </li>
+									   <li>
+									   	<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">牙周类
+									        </label>
+										</a>
+									   </li>
+									   <li>
+									   	<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">牙体类
+									        </label>
+										</a>
+									   </li>
+									   <li>
+									   	<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">牙槽颔面外科
+									        </label>
+										</a>								   
+									   </li>	
+									   <li>
+									   	<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">药品类
+									        </label>
+										</a>	
+									   	</li>
+									   <li>
+									   	<a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">护理产品
+									        </label>
+										</a>	
+									   </li>
+									   <li>
+									   	 <a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">检验项目
+									        </label>
+										 </a>	
+									   </li>
+									   <li>
+									   	  <a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">儿牙类
+									        </label>
+										  </a>	
+									   </li>
+									   <li>
+									   	 <a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">修复类
+									        </label>
+										  </a>	
+									   </li>
+									   <li>
+									   	  <a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">种植类
+									        </label>
+										  </a>	
+									   </li>
+									   <li>
+									   	  <a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">矫正类
+									        </label>
+										  </a>	
+									   </li>
+									   <li>
+									   	 <a class="clock" href="#none">									 
+									        <label>
+									            <input name="item" type="checkbox">矫正类
+									        </label>
+										  </a>										   	 
+									   </li>
+									</ul>					    				    						    
+				   			  </div>
+		   					</div>
+		   					<div class="col-sm-3">
+		   						<div class="col-sm-12" style="margin-bottom: 10px;">
+			   						<div class="row">
+			   							<div class="col-sm-3 " style="margin-right: 5px;">
+					   						<div class="row">
+					   							<button type="button" id="allchecked1" class="btn btn-block btn-success all" data-name="item1">全选</button>
+					   						</div>
+					   					</div>
+					   					<div class="col-sm-3 " style="margin-right: 5px;">
+					   						<div class="row">
+					   							<button type="button" id="nonechecked1" class="btn btn-block btn-success invert" data-name="item1">反选</button>
+					   						</div>				   				
+					   					</div>
+					   					<div class="col-sm-3 ">
+					   						<div class="row">
+					   							<button type="button" id="blanks2" class="btn btn-block btn-success blanks" data-name="item1">清空</button>
+					   						</div>
+					   					</div>
+					   				</div>
+					   			</div>
+		   						<div class="col-sm-12 allborder" style="height: auto;margin-right:15px ;">		   			 							    	
+					    		<ul class="nav nav-pills nav-stacked tabbtn">
+								   <li>
+								    <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item1" type="checkbox">保健类
+								        </label>
+									  </a>		
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item1" type="checkbox">洁牙
+								        </label>
+									  </a>	
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item1" type="checkbox">麻醉
+								        </label>
+									  </a>	
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item1" type="checkbox">美白
+								        </label>
+									  </a>
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item1" type="checkbox">余弗
+								        </label>
+									  </a>
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item1" type="checkbox">窝沟封闭
+								        </label>
+									  </a>
+								   </li>							   
+								</ul>						    				    						    
+				   			  </div>
+		   					</div>		   					
+				   			 <!--右侧内容-->
+				   			<div class="col-sm-3">
+				   				<div class="col-sm-12" style="margin-bottom: 10px;">
+			   						<div class="row">
+			   							<div class="col-sm-3 " style="margin-right: 5px;">
+					   						<div class="row">
+					   							<button type="button" id="allchecked2" class="btn btn-block btn-success all" data-name="item2">全选</button>
+					   						</div>
+					   					</div>
+					   					<div class="col-sm-3 " style="margin-right: 5px;">
+					   						<div class="row">
+					   							<button type="button" id="nonechecked2" class="btn btn-block btn-success invert" data-name="item2">反选</button>
+					   						</div>				   				
+					   					</div>
+					   					<div class="col-sm-3 ">
+					   						<div class="row">
+					   							<button type="button" id="blanks2" class="btn btn-block btn-success blanks" data-name="item2">清空</button>
+					   						</div>
+					   					</div>
+					   				</div>
+					   			</div>
+				   			 	<div class="col-sm-12 allborder" style="height: auto;margin-right:15px ;">			   			 	
+					    		<ul class="nav nav-pills nav-stacked tabbtn">
+								   <li>
+								    <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item2" type="checkbox">保健类
+								        </label>
+									  </a>		
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item2" type="checkbox">洁牙
+								        </label>
+									  </a>	
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item2" type="checkbox">麻醉
+								        </label>
+									  </a>	
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item2" type="checkbox">美白
+								        </label>
+									  </a>
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item2" type="checkbox">余弗
+								        </label>
+									  </a>
+								   </li>
+								   <li>
+								   	  <a class="clock" href="#none">									 
+								        <label>
+								            <input name="item2" type="checkbox">窝沟封闭
+								        </label>
+									  </a>
+								   </li>							   
+								</ul>						    					    					
+						      </div>	
+				   			</div>				   			
+						    <!--右侧内容-->
+			   			</div>		   			
+			        </div>
+			        <br class="clear" />
+			        <div class="modal-content">
+	        			<div class="modal-footer">
+	        			<button type="button" class="btn btn-primary">确定</button> 	
+			            <button type="button" class="btn btn-default" 
+			               data-dismiss="modal">取消
+			            </button>			            
+			         </div>
+        		</div>       	
+        		</div>
+        	</div>
+		</div>   
+		<!--选择处置项 模态框（Modal） -->
+		<script src="../../js/jquery-2.1.4.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>
+		<script src="../../laydate/laydate.js"></script>
+		<script src="../../js/selectUi.js"></script>
+		<script>
+		var nowDate;
+			$(function(){
+				//表格添加
+				/*$(".btn-sure").click(function(){
+					$.ajax({
+						type:"post",
+						url:"",
+						async:true,
+						success:function(){
+
+						};
+					});
+				});*/
+
+				//开始日期
+			;!function(){
+				laydate.skin('molv');
+				var now =laydate.now();
+				$('#date').val(now)
+				laydate({
+					elem: '#date',
+					event: 'click', //触发事件
+					format: 'YYYY-MM-DD', //日期格式
+					istime: true, //是否开启时间选择
+					isclear: true, //是否显示清空
+					istoday: true, //是否显示今天
+					issure: true, //是否显示确认
+					festival: true, //是否显示节日
+					min: '2000-01-01', //最小日期
+					max: '2099-12-31', //最大日期
+					start: now,    //开始日期
+					fixed: false, //是否固定在可视区域
+					zIndex: 9999999,
+					choose: function(dates){ //选择好日期的回调
+						//$('#report-table').bootstrapTable('refresh');
+					}
+				})
+		
+			}();
+				//截止日期
+				;!function(){
+				laydate.skin('molv');
+				laydate({
+				   elem: '#date1'
+				})
+				
+				}();
+				$(".clock").on("click",function(){
+					//$(".level2").hide();//先全部收取
+					$(this).next("ul").fadeToggle();//打开当前点击的ul			
+				});
+				
+				//全选
+				$("#checkedall").click(function() {
+			 	$("[name=items]:checkbox").prop("checked",true);
+			 });  
+			 
+			 //全部展开
+			 $("#play").on("click",function(){
+				$(".level2").show();//全部展开		
+			});
+				
+			//点击确定按钮发送请求
+			
+			//请选择弹出框事件
+				//全选		
+			$(".all").on("click",function(){	
+				var names=$(this).attr("data-name");
+				$("[name="+names+"]:checkbox").prop("checked",true);
+			});
+			 //反选
+			$(".invert").on("click",function(){
+				var names=$(this).attr("data-name");
+				$("[name="+names+"]:checkbox").prop("checked",false);
+			});
+			//清空
+			$(".blanks").on("click",function(){
+				var names=$(this).attr("data-name");
+				$("[name="+names+"]:checkbox").prop("checked",false);
+			});
+			});
+				
+		</script>
+	</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改预约</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../laydate/need/laydate.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/lq.datetimepick.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+	</head>
+	<body>
+		<div class="container">
+		   <div class="row">
+		   	<div class="col-sm-10">
+		   		<div class="container-fluid ">
+		   			<div class="row">
+		   				<div class="col-sm-2" style="line-height: 30px;">
+		   					<a href="#">返回 /</a>						
+							<a href="#">预约详情</a>		
+		   				</div>
+						<div class="col-sm-2">
+							<button type="button" class="btn btn-block btn-success">全部预约计划</button>
+						</div>
+		   			</div>	   			
+		   		</div>
+		   		<hr />
+		   		<form class="form-horizontal" role="form">
+				    <div class="col-sm-8">
+				   	    <div class="form-group">
+					      <label for="firstname" class="col-sm-4 control-label">患者姓名</label>
+					      <div class="col-sm-8">
+					         <input type="text" class="form-control" id="firstname"  placeholder="请输入名字">
+					         <span class="pos-span">必填</span>
+					      </div>
+					    </div>
+				    </div>
+				     <div class="col-sm-8">
+				   	    <div class="form-group">
+					      <label for="firstname" class="col-sm-4 control-label">手机号码</label>
+					      <div class="col-sm-8">
+					         <input type="text" class="form-control" id="firstname"  placeholder="请输入名字">
+					         <span class="pos-span">必填</span>
+					      </div>
+					    </div>
+				    </div>
+				    <div class="col-sm-8">
+				   	    <div class="form-group">
+					      <label for="firstname" class="col-sm-4 control-label">患者来源</label>
+					      <div class="col-sm-8">
+					        <select class="form-control">
+						         <option>六一儿童节</option>
+						         <option>美团团购</option>						      
+						    </select>
+					      </div>
+					    </div>
+				    </div>
+				    <div class="col-sm-8">
+				   	    <div class="form-group">
+					      <label for="firstname" class="col-sm-4 control-label">预约医生</label>
+					      <div class="col-sm-8">
+					        <select class="form-control">
+						         					      
+						    </select>
+					      </div>
+					    </div>
+				    </div>				    
+				    <div class="col-sm-8">
+				   	    <div class="form-group">
+					      <label for="firstname" class="col-sm-4 control-label">预约时间</label>
+					      <div class="col-sm-8">
+					        <div class="row">
+					        	<div class="col-sm-6">
+						        	<input type="text" class="form-control" id="datetimepicker1" value="2016-06-29">
+						        </div>				       
+						        <div class="col-sm-6">
+						        	<select class="form-control">
+						         					      
+						            </select>
+						            
+						        </div>
+					        </div>
+					      </div>
+					    </div>
+				    </div>	
+				    <div class="col-sm-8">
+				   	    <div class="form-group">
+					      <label for="firstname" class="col-sm-4 control-label">预约事项</label>
+					      <div class="col-sm-8">
+					        <select class="form-control">
+						         					      
+						    </select>
+						     <span class="pos-span">必填</span>
+					      </div>
+					    </div>
+				    </div>						   					    	
+				     <br style="clear:both" />
+				      <div class="col-sm-8 ">
+				   	    <div class="form-group">
+					      <label for="firstname" class="col-sm-4 control-label">预约备注</label>
+					      <div class="col-sm-8">
+					       <textarea class="form-control" name="" rows="6" cols=""></textarea>
+					      </div>
+					    </div>
+				    </div>	
+				     <br style="clear:both" />
+				    <div class="form-group">
+		   				<div class="col-sm-2 col-sm-offset-1">
+			   				<button type="button" class="btn btn-block btn-success"><a href="visitmanagement.html">保存</a></button>
+			   			</div>
+			   			<div class="col-sm-2 col-sm-offset-1">
+			   				<button type="button" class="btn btn-block btn-success"><a href="visitmanagement.html">取消预约</a></button>
+			   			</div>
+		   			</div>	
+				</form>
+		   	</div>
+		   </div>			    
+		</div>		
+		<script src="../../js/jquery-2.1.4.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>		
+		<script src="../../laydate/laydate.js"></script>
+		<script src="../../js/selectUi.js"></script>
+		<script src="../../js/lq.datetimepick.js"></script>
+		<script>
+		//出生日期选择
+		;!function(){
+		laydate.skin('molv');
+		laydate({
+		   elem: '#date'
+		})
+		
+		}();
+		
+		//时间范围选择
+		$("#datetimepicker1").on("click",function(e){
+		e.stopPropagation();
+		$(this).lqdatetimepicker({
+			css : 'datetime-hour'
+		});
+
+	});
+
+
+	$("#datetimepicker2").on("click",function(e){
+		e.stopPropagation();
+		$(this).lqdatetimepicker({
+			css : 'datetime-hour'
+		});
+
+	});
+			$(function(){
+				$.ajax({
+					type:"post",
+					url:"",
+					async:true,
+					data:{
+					"name":$("#firstname").val()
+					},
+					success:function(data){
+						$("#firstname").val(data.user.name);
+						$("#num").val(data.user.num);
+						$("#phonenum").val(data.user.phone);
+						$("#doctor").val(data.user.doctor);
+						$("#goal").val(data.user.goal);
+						$("#history").val(data.user.historys);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
