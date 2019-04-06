@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>报表查询</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12" style="margin-top: 15px;">
+					<div class="container-fluid ">
+			   			<div class="row">			   						   						   							   					   							
+			   			</div>	   				
+			   		</div>
+			   		<hr />			   		
+			   			<!--底部表格 START-->
+			   			<div class="col-md-12 table-responsive">
+			   				<div class="row">
+			   					<form class="form-horizontal" role="form">				   					 
+			   					  	<div class="col-md-12">
+					   					<div class="row">			   						
+					   						<div class="col-sm-5">
+										   	    <div class="form-group">
+											      <label for="firstname" class="col-sm-3 control-label">开始日期</label>
+											      <div class="col-sm-6">
+											          <input type="text" class="form-control" id="date">
+											      </div>
+											    </div>
+										    </div>	
+										    <div class="col-sm-5">
+										   	    <div class="form-group">
+											      <label for="firstname" class="col-sm-3 control-label">截止日期</label>
+											      <div class="col-sm-6">
+											          <input type="text" class="form-control" id="date1">
+											      </div>
+											    </div>
+										    </div>	
+										    <div class="col-sm-2">
+										    	<button type="button" class="btn btn-block btn-success">查询</button>
+										    </div>
+										</div>
+					   				</div>			   					
+				   				</form>
+			   					<table class="table table-bordered" style="word-break:break-all; word-wrap:break-all;">						  
+								   <thead>
+								      <tr>
+								         <th>领用时间</th>
+								         <th>折扣方案</th>
+								         <th>有效期至</th>
+								         <th>领用数量</th>
+								         <th>领用人</th>							      
+								         <th>操作</th>	
+								      </tr>
+								   </thead>
+								   <tbody>
+								      <tr class="mytr">
+								         <td>2016-10-10</td>
+								         <td>补牙优惠卡</td>
+								         <td>2019-11-29</td>
+								         <td>100</td>
+								         <td>张三</td>						    
+								         <th><a href="#">查看</a></th>
+								      </tr>
+								      <tr class="mytr">
+								         <td>2016-10-10</td>
+								         <td>补牙优惠卡</td>
+								         <td>2019-11-29</td>
+								         <td>100</td>
+								         <td>张三</td>						    
+								         <th><a href="#">查看</a></th>
+								      </tr>
+								      <tr class="mytr">
+								         <td>2016-10-10</td>
+								         <td>补牙优惠卡</td>
+								         <td>2019-11-29</td>
+								         <td>100</td>
+								         <td>张三</td>						    
+								         <th><a href="#">查看</a></th>
+								      </tr>
+								   </tbody>
+							    </table>							
+			   			<!--底部表格 END-->
+			   				</div>		   				
+			   			</div>			   			  					
+				</div>				
+			</div>
+		</div>	
+		<script src="../../js/jquery-2.1.4.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>
+		<script src="../../laydate/laydate.js"></script>
+		<script src="../../js/selectUi.js"></script>
+		<script>
+	$(function(){
+		//开始日期
+		//开始日期
+				;!function(){
+		laydate.skin('molv');
+		nowDate = laydate.now()//将返回前天
+		laydate({
+		    elem: '#date',
+		    event: 'click', //触发事件
+	        format: 'YYYY-MM-DD', //日期格式
+	        //istime: true, //是否开启时间选择
+	        isclear: true, //是否显示清空
+	        istoday: true, //是否显示今天
+	        issure: true, //是否显示确认
+	        festival: true, //是否显示节日
+	       // min: '1900-01-01 00:00:00', //最小日期
+	       // max: '2099-12-31 23:59:59', //最大日期
+	       // start: '1970-6-15 23:00:00',    //开始日期
+	        fixed: false, //是否固定在可视区域
+	        zIndex: 99999999, //css z-index 
+			    choose: function(dates){ //选择好日期的回调
+			     //alert(dates);
+			     $("#date").val(laydate.now())
+			    }
+		   })
+		
+		$("#date").val(nowDate)
+		}();
+		
+		//截止日期
+		;!function(){
+		laydate.skin('molv');
+		laydate({
+		   elem: '#date1'
+		})
+		
+		}();
+	});		
+		</script>
+	</body>
+</html>

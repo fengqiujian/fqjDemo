@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title></title>
+</head>
+<body>
+ <input type="text" id="txt" />
+<input type="button" value="验证" onclick="checkRate();" />
+
+  <input type="text" style="ime-mode:disabled;" onpaste="return false;"  onkeypress="keyPress()" />    
+<script>
+ 
+/*function doit(){
+    var val = document.getElementById("txt").value;
+    var reg = new RegExp(/^((\d*[1-9])|(0?\.\d{2}))$/g,'');
+    if(!reg.test(val)) alert("请输入0-100");
+    else alert("ok");
+}*/
+
+function checkRate(){
+    var re = /^(?:0|[1-9][0-9]?|10000000)$/;
+    var nubmer = document.getElementById("txt").value;
+    if(!re.test(nubmer)){
+        alert("请输入正确的数值,只允许输入整数!");
+        document.getElementById("txt").value = "";
+        return false;
+    }
+    if(nubmer > 100 || nubmer < 1){
+        alert('输入的数不能小于1且不能大于100');
+        document.getElementById("txt").value = '';
+        return false;
+    }
+}
+
+
+    function keyPress() {    
+         var keyCode = event.keyCode;    
+         if ((keyCode >= 48 && keyCode <= 57))    
+        {    
+             event.returnValue = true;    
+         } else {    
+               event.returnValue = false;    
+        }    
+     }    
+//checkRate();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>		
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+	</head>
+	<body>
+		<!--table START-->
+		<div class="container-fluid" style="background-color: #F5F5F5;">	
+			<ul class="nav nav-pills">
+				<li class="active"><a href="test.html">Home</a></li>
+				<li><a href="casedata.html">SVN</a></li>
+				<li><a href="visitmanagement.html">iOS</a></li>
+				<li><a href="#">VB.Net</a></li>
+				<li><a href="#">Java</a></li>
+				<li><a href="#">PHP</a></li>
+			</ul> 
+			<div class="container-fluid text-center">
+				<h3>选择处置项</h3>
+			</div>
+			<div class="container-fluid">		            		
+        			 <form class="form-horizontal" role="form">
+					    <div class="form-group">
+					        <label for="firstname" class="col-sm-2 control-label">患者姓名</label>
+					        <div class="col-sm-10">
+					            <input type="text" class="form-control" id="firstname" readonly="readonly" value="偶小米" placeholder="偶小米">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="lastname" class="col-sm-2 control-label">患者性别</label>
+					        <div class="col-sm-10">
+					           <input type="text" class="form-control" id="firstname" readonly="readonly" value="女" placeholder="女">
+					        </div>
+					    </div>	
+					    <div class="form-group">
+					        <label for="firstname" class="col-sm-2 control-label">手机号码</label>
+					        <div class="col-sm-10">
+					            <input type="text" class="form-control" id="firstname" readonly="readonly" value="13754322322" placeholder="13754322322">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="firstname" class="col-sm-2 control-label">就诊医生</label>
+					        <div class="col-sm-10">
+					            <input type="text" class="form-control" id="firstname" readonly="readonly" value="陆小曼" placeholder="陆小曼">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="firstname" class="col-sm-2 control-label">就诊事项</label>
+					        <div class="col-sm-10">
+					            <input type="text" class="form-control" id="firstname" readonly="readonly" value="种植" placeholder="种植">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="firstname" class="col-sm-2 control-label">时间</label>
+					        <div class="col-sm-5">
+					            <input type="text" class="form-control" id="firstname" readonly="readonly" value="2016-09-08" placeholder="2016-09-08">
+					        </div>
+					        <div class="col-sm-5">
+					            <input type="text" class="form-control" id="firstname" readonly="readonly" value="10:00" placeholder="10:00">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="firstname" class="col-sm-2 control-label">短信模板</label>
+					        <div class="col-sm-10 ">
+					            <select class="form-control field">
+						            <option>请选择</option>
+						            <option>预约模板</option>
+						            <option>回访模板</option>							            
+						        </select> 
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label for="name" class="col-sm-2 control-label">短信内容</label>
+					        <div class="col-sm-10 textareas">
+					            <textarea class="form-control text-left" rows="4" style="display: ;">
+					            	欧小米女士您好，您预约的欢乐口腔西直门分院张志闽医生的种植项目即将到期。
+									到期时间：2016-07-29 10:00(明日)
+									就诊地址：北京市西直门11号
+									客服电话：400-0010-2039
+					            </textarea> 
+					            <textarea class="form-control " rows="4" style="display: none;">
+					            	陆小曼女士您好，您预约的欢乐口腔西直门分院张志闽医生的种植项目即将到期。
+									到期时间：2016-07-29 10:00(明日)
+									就诊地址：北京市西直门11号
+									客服电话：400-0010-2039
+					            </textarea> 
+					        </div>
+					    </div>
+					    <div class="col-sm-2 col-sm-offset-1">
+					    	<button type="submit" class="btn btn-block btn-success">发送提醒</button>
+					    </div>
+					</form> 
+            	</div>
+   			 <!--右侧内容-->
+   			  
+		    <!--右侧内容-->
+		</div>	
+		
+		<button class="btn btn-primary btn-lg" >开始演示模态框</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+            </div>
+            <div class="modal-body">在这里添加一些文本</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div> 
+		<script src="../../js/jquery-2.1.4.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>
+		<script>
+			$(function(){
+				
+				//nav变色
+				$(".nav-pills li").click(function(){
+					$(this).addClass("active").siblings().removeClass("active");
+				});
+				
+				
+				$(".field").change(function(){
+					var txt=$(this).val();
+                    var areas=$(".textareas").find("textarea");
+                    if (txt!="预约模板") {
+                    	areas.eq(0).css("display","none");
+                    	areas.eq(1).css("display","block");
+                    }else{
+                    	areas.eq(0).css("display","block");
+                    	areas.eq(1).css("display","none");
+                    }
+                                 
+				});
+				
+				$(".btn-lg").click(function(){
+					 $(this).attr('data-toggle', 'modal').attr('data-target','#myModal');
+				});
+			});
+			
+			
+		</script>
+	</body>
+</html>

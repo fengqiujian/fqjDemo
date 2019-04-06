@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF" monitorInterval="1800">
+
+	<Properties>
+		<property name="LOG_HOME">/data/enjoyhisfyLog</property>
+		<property name="LOG_PATTERN">%date{yyyy-MM-dd HH:mm:ss} %level [%thread][%file:%line] - %msg%n</property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %level [%thread][%file:%line] - %msg%n" />
+			<ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY" />
+		</Console>
+
+		<!-- 系统默认info日志 -->
+		<RollingRandomAccessFile name="info-log" fileName="${LOG_HOME}/info.log" filePattern="${LOG_HOME}/info.%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<!-- 默认error日志 -->
+		<RollingRandomAccessFile name="error-log" fileName="${LOG_HOME}/error.log" filePattern="${LOG_HOME}/error.%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<!-- 默认debug日志 -->
+		<RollingRandomAccessFile name="debug-log" fileName="${LOG_HOME}/debug.log" filePattern="${LOG_HOME}/debug.%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<!-- browser请求日志 -->
+		<RollingRandomAccessFile name="browser-log" fileName="${LOG_HOME}/browser.log" filePattern="${LOG_HOME}/browser.%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<!-- client请求日志 -->
+		<RollingRandomAccessFile name="client-log" fileName="${LOG_HOME}/client.log" filePattern="${LOG_HOME}/client.%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<!-- operator所有请求日志 -->
+		<RollingRandomAccessFile name="operator-log" fileName="${LOG_HOME}/operator.log" filePattern="${LOG_HOME}/operator.%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingRandomAccessFile>
+
+        <Console name="consolePrint" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+	</Appenders>
+
+	<Loggers>
+		<Root level="trace">
+			<Appender-ref ref="Console" />
+		</Root>
+		<!-- 默认debug日志 -->
+		<Logger name="debug" level="debug" additivity="true">
+			<AppenderRef ref="debug-log" />
+		</Logger>
+		<!--默认info日志 -->
+		<Logger name="info" level="info" additivity="true">
+			<AppenderRef ref="info-log" />
+		</Logger>
+		<!--默认error日志 -->
+		<Logger name="error" level="error" additivity="true">
+			<AppenderRef ref="error-log" />
+		</Logger>
+		<!-- 浏览器请求日志 -->
+		<Logger name="browser.info" level="info" additivity="true">
+			<AppenderRef ref="browser-log" />
+		</Logger>
+		<!--客户端请求日志 -->
+		<Logger name="client.trace" level="trace" additivity="true">
+			<AppenderRef ref="client-log" />
+		</Logger>
+		<!--客户端请求日志 -->
+		<Logger name="operator" level="info" additivity="true">
+			<AppenderRef ref="operator-log" />
+		</Logger>
+		<!-- 将业务dao接口填写进去,并用控制台输出即可 -->
+        <logger name="com.enjoyhis.persistence.his.dao" level="DEBUG" additivity="false">
+            <appender-ref ref="consolePrint"/>
+        </logger>
+        <root level="info">
+            <appender-ref ref="consolePrint" />
+        </root>
+	</Loggers>
+
+</Configuration>  

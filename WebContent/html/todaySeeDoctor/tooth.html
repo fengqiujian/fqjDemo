@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>牙位选择</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="col-sm-7 addbg-color middle" style="background-color: #dbe0e4;">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						选择牙位
+						<span class="pull-right glyphicon glyphicon-remove"></span>
+					</div>
+					<div class="col-sm-10 middle allborder clear addzoom" style="background-color: #FFFFFF;padding: 10px 0;">
+						<div class="row">
+							<div class="col-sm-11 middle allborder">
+							  <div class="row">
+							  	<div class="col-sm-6 border-right add-border-btn" style="border-bottom: 1px solid black;">	
+									<div class="row row-xs-1">
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+									</div>							  							 
+							    </div>	
+							    <div class="col-sm-6 " style="border-bottom: 1px solid black;">	
+									<div class="row row-xs-1">
+										<div class="col-xs-1" style="margin-left:1px;">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+									</div>							  							 
+							    </div>
+							    <div class="col-sm-6 border-right add-border-btm">	
+									<div class="row row-xs-1">
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+									</div>				  							 
+							    </div>	
+							   <div class="col-sm-6 ">	
+									<div class="row row-xs-1">
+										<div class="col-xs-1" style="margin-left:1px;">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+										<div class="col-xs-1">8</div>
+									</div>								 
+							   </div>	
+							  </div>
+						    </div>						
+							</div>						
+					    </div>
+					<div class="kong"></div>
+					<div class="col-sm-10 text-center col-sm-offset-1 ">
+						<div class="row">
+							<div class="col-sm-10">
+							<div class="row">
+								<div class="col-sm-3 ">
+									<div class="row">
+										<button type="button" class="btn btn-block btn-success">全口</button>
+									</div>								
+								</div>
+								<div class="col-sm-3 ">
+									<button type="button" class="btn btn-block btn-success">上半口</button>
+								</div>
+								<div class="col-sm-3 ">
+									<button type="button" class="btn btn-block btn-success">下半口</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-2 pull-right">
+							<button type="button" class="btn btn-block btn-success">确定</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-2.1.4.min.js"></script>	
+		<script>
+			$(function(){
+				var indexs=$(".btn").index();
+				$(".btn").eq(indexs).click(function(){
+				$(".col-sm-6 .col-xs-1").filter(":contains('8')").css("background","gray");	
+				});
+			});
+		</script>
+	</body>
+</html>

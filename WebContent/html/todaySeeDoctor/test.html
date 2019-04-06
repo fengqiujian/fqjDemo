@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>挑战题</title>
+    </head>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script>
+        var student=[
+            {"name":"博丽灵梦","age":"未知","live":"博丽神社"},
+            {"name":"雾雨魔理沙","age":"未知","live":"魔法之森"}
+        ]
+        $(function(){
+            $("#btn").bind("click",function(){
+                jiazai()
+                });
+            });
+        function jiazai(){
+              $("tbody").empty();
+              $.each(student,function(i,data){ 
+                  $("tbody").append(
+                    "<tr><td>"+data.name+
+                    "</td><td>"+data.age+
+                    "</td><td>"+data.live+"</td></tr>"
+                      )
+                });
+            }       
+    </script>  
+    <style>
+        table{border-collapse:collapse;text-align:center;margin:50px auto;color:green;}
+        tr th{background:#f0f0f0;}
+        th,td{border:1px solid #ccc;padding:4px 20px; }
+
+    </style>
+    <body>
+        <table>
+        <caption style="margin-bottom:10px;">幻想乡人物资料</caption>
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>居住地</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="3">
+                    <input id="btn" type="button" value="(=ﾟωﾟ)=加载点我">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

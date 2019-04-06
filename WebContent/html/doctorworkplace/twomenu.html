@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选择处置项</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>		
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>		
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-11">				 								   			
+		   			<!--table START-->
+		   			<div class="col-sm-12" style="background-color: #F5F5F5;">		   				
+	   					<div class="container-fluid text-center">
+	   						<h3>选择处置项</h3>
+	   					</div>
+	   					<div class="col-sm-2 allborder">		   			 	
+					    	<div class="row" id="ajaxtab">
+					    		<ul class="nav nav-pills nav-stacked tabbtn">
+								   <li class="active"><a href="commonuse.html" >保健类</a></li>
+								   <li><a href="#">洁牙</a></li>
+								   <li><a href="#ios" >麻醉</a></li>
+								   <li><a href="#">美白</a></li>
+								   <li><a href="#">余弗</a></li>
+								   <li><a href="#">窝沟封闭</a></li>							   
+								</ul>
+					    	</div>				    						    
+			   			 </div>
+			   			 <div class="col-sm-10 tabbox">
+			   			 	<div id="myTabContent" class="tab-content tabcon">
+							   
+			   			    </div>		   							
+					    </div>		   				
+		   			</div>		   			
+			    </div>
+		    </div>	
+		</div>
+		<script src="../../js/jquery-2.1.4.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>
+		<script>				
+		$(function(){	
+			
+	    //li列表 ajax请求
+	    $.ajax({
+	    	type:"post",
+	    	url:"",
+	    	async:true,
+	    	data:{
+				"name":$("#userName").val()
+			},
+			success:function(data){				
+				console.info(data);
+				var company=data.numbers;
+				var str="";
+				var len=data.numbers.length
+				for(var i=0;i<len;i++){
+					str+="<li><a>"+company[i].name+"</a></li>";
+				}
+				//alert(str);
+				$(".tabbtn").html(str);
+			},
+	    });
+	    
+		//高亮
+		$(".tabbtn li a").click(function(){
+			$(this).parent().addClass("active").siblings().removeClass("active");
+		});	
+		
+		//ajax 选项卡
+		$('#ajaxtab .tabbtn li a').click(function(){				
+		var thiscity = $(this).attr("href");//attr,设置被选元素的属性和值。			
+		$('.tabbox .tabcon').load(thiscity);	
+		return false;
+		});
+		$('#ajaxtab .tabbtn li a').eq(0).trigger("click");//第一个默认为点击状态，让内容显示出来
+		//trigger()规定被选元素的触发方式，
+		});
+		
+		//高亮		
+		</script>
+	</body>
+</html>
