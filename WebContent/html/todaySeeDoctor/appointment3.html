@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">		
+		<title>全部预约计划</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+		<style type="text/css">
+			table{width: 1000px;}
+			#timetable td{width: 25px;}
+			#timetable td{font-size: 10px;word-break: break-all;padding: 0;}
+			#timetable>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 0px;
+    line-height: ;
+    height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+    border: 1px solid #f2f2f2;
+}
+#timetable tr.trfirst>td{font-size: 14px;border: 1px solid #d7d7d7;background: #e4e4e4;}
+#timetable tr.control-td>td:nth-child(1){font-size: 14px;background: #EEEEEE;}
+		</style>
+	</head>
+	<body>
+		<div class=" table-responsive">
+			<div class="row">
+				<table id="timetable" class="table table-bordered">
+					<tbody>					
+						<tr class="trfirst">
+							<td style="width:6%;" class="">2016-8-8</td>
+							<!--医生-->
+						</tr>
+						<tr class='tr0 control-td' data-time="07:00">
+							<td style="font-size: 14px;">07:00</td>										
+						</tr>
+						<tr class='tr1 control-td' data-time="07:15">
+							<td style="height: 30px;">15</td>										
+						</tr>
+						<tr class='tr2 control-td' data-time="07:30">
+							<td style="height: 30px;">30</td>
+							
+						</tr>
+						<tr class='tr3 control-td' data-time="07:45">
+							<td style="height: 30px;">45</td>														
+						</tr>
+						<tr class='tr4 control-td' data-time="08:00">
+							<td>08:00</td>										
+						</tr>
+						<tr class='tr5 control-td' data-time="08:00">
+							<td>15</td>										
+						</tr>
+						<tr class='tr6 control-td' data-time="08:00">
+							<td>30</td>										
+						</tr>
+						<tr class='tr7 control-td' data-time="08:00">
+							<td>45</td>										
+						</tr>
+						<tr class='tr8 control-td' data-time="08:00">
+							<td>09:00</td>										
+						</tr>
+					</tbody>
+			    </table>
+			</div>
+		</div>
+	<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop ="static">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+         </div>
+         <div class="modal-body">
+            <div class="container-fluid">		            	
+        		<div class="col-sm-12 border-bottoms addzoom">
+        			<div class="col-sm-6 text-left">
+        				就诊医生
+        			</div>
+        			<div class="col-sm-6 text-right ">
+        				张世民
+        			</div>
+        		</div>	
+        		<div class="col-sm-12 border-bottoms addzoom">
+        			<div class="col-sm-6 text-left">
+        				就诊日期
+        			</div>
+        			<div class="col-sm-6 text-right">
+        				2016/06/17
+        			</div>
+        		</div>		
+        		<div class="col-sm-12 border-bottoms addzoom">
+        			<div class="col-sm-3 text-left">
+        				就诊时间
+        			</div>
+        			<div class="col-sm-8 text-right">
+        				 <div class="form-group">					        					       
+				            <select class="form-control">
+					            <option data-time="0">7:00</option>
+					            <option data-time="1">7:15</option>
+					            <option data-time="2">7:30</option>
+					            <option data-time="3">7:45</option>
+					            <option data-time="4">08:00</option>
+					            <option data-time="5">08:15</option>
+					            <option data-time="6">08:30</option>
+					            <option data-time="7">08:45</option>
+					            <option>09:00</option>
+					            <option>09:15</option>
+					            <option>09:30</option>
+					            <option>09:45</option>
+					            <option>10:00</option>
+					            <option>10:15</option>
+					            <option>10:30</option>
+					            <option>10:45</option>
+					            <option>11:00</option>
+					            <option>11:15</option>
+					            <option>11:30</option>
+					            <option>11:45</option>
+					            <option>12:00</option>
+					            <option>12:15</option>
+					            <option>12:30</option>
+					            <option>12:45</option>
+					            <option>13:00</option>
+					            <option>13:15</option>
+					            <option>13:30</option>
+					            <option>13:45</option>
+					            <option>14:00</option>
+					            <option>14:15</option>
+					            <option>14:30</option>
+					            <option>14:45</option>
+					            <option>15:00</option>
+					            <option>15:15</option>
+					            <option>15:30</option>
+					            <option>15:45</option>
+					            <option>16:00</option>
+					            <option>16:15</option>
+					            <option>16:30</option>
+					            <option>16:45</option>
+					            <option>17:00</option>
+					            <option>17:15</option>
+					            <option>17:30</option>
+					            <option>17:45</option>
+					            <option>18:00</option>
+					            <option>18:15</option>
+					            <option>18:30</option>
+					            <option>18:45</option>
+					            <option>19:00</option>
+					            <option>19:15</option>
+					            <option>19:30</option>
+					            <option>19:45</option>
+					            <option>20:00</option>
+					            <option>20:15</option>
+					            <option>20:30</option>
+					            <option>20:45</option>
+					            <option>21:00</option>
+					        </select> 					        		        
+					    </div> 
+        			</div>
+        		</div>		
+        		<div class="col-sm-12 border-bottoms addzoom">
+        			<div class="col-sm-6 text-left">
+        				就诊时长
+        			</div>
+        			<div class="container-fluid clear">
+        				<div class="col-xs-2 border-radus " data-value="1">
+        					15分钟
+        				</div>
+        				<div class="col-xs-2 border-radus" data-value="2">
+        					30分钟
+        				</div>
+        				<div class="col-xs-2 border-radus" data-value="3">
+        					45分钟
+        				</div>
+        				<div class="col-xs-2 border-radus " data-value="4">
+        					1小时
+        				</div>
+        				<br class="clear" />
+        				<div class="col-xs-2 border-radus " data-value="5">
+        					1.5小时
+        				</div>
+        				<div class="col-xs-2 border-radus" data-value="6">
+        					2小时
+        				</div>
+        				<div class="col-xs-2 border-radus" data-value="7">
+        					上午
+        				</div>
+        				<div class="col-xs-2 border-radus" data-value="8">
+        					下午
+        				</div>
+        			</div>
+        		</div>
+        		<div class="col-sm-12 ">
+        			<div class="col-sm-3 text-left">            				
+        				预约目的	            				
+        			</div>
+    			    <div class="col-sm-6 text-right">            				   
+				   	    <select class="form-control seloption">
+					         <option value="修复">修复</option>
+					         <option value="补牙">补牙</option>
+					         <option value="拔牙">拔牙</option>
+					         <option value="二次拔牙">二次拔牙</option>
+					         <option value="正畸修复">正畸修复</option>
+					    </select>	            				   
+				    </div>
+        	    </div>
+        	    <div class="col-sm-12 text-right btngroup">
+        			<button type="button" class="btn btn-default btncel" 
+		               data-dismiss="modal" style="background: #ccc;border-color: #ccc;">取消
+		            </button>
+		            <button type="button"  class="btn btn-primary btnsure" >
+		                       确定
+		            </button>
+        	    </div>
+        	</div>	
+        </div>
+      </div>                
+    </div><!-- /.modal-content -->
+</div><!-- /.modal -->	
+</body>
+</html>
+<script src="../../js/jquery-2.1.4.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var data={
+	"doctor": [
+		{
+			"name": "张一山",
+		},
+		{
+			"name": "孙医生",
+		},
+		{
+			"name": "李医生",
+		},
+		{
+			"name": "王奕盛",
+		},{
+			"name": "刘医生",
+		},{
+			"name": "胡医生",
+		},{
+			"name": "杨医生",
+		},{
+			"name": "周一是",
+		},{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		,{
+			"name": "宋一帅",
+		}
+		],
+	"patient": [
+	{"num":"1","color":true,"column":"doc-1",'id':'doc-1-1',"group":"1","time":"1"},{"num":"2","color":false,"column":"doc-1",'id':'doc-1-2',"group":"2","time":"1"},{"num":"3","color":true,"column":"doc-1",'id':'doc-1-3',"group":"1","time":"3"},{"num":"4","color":true,"column":"doc-1",'id':'doc-1-4',"group":"1","time":"4"},
+	{"num":"5","color":false,"column":"doc-1",'id':'doc-1-5',"group":"1","time":"5"},{"num":"6","color":true,"column":"doc-1",'id':'doc-1-6',"group":"1","time":"6"},{"num":"7","color":true,"column":"doc-1",'id':'doc-1-7',"group":"2","time":"7"},{"num":"8","color":true,"column":"doc-1",'id':'doc-1-8',"group":"1","time":"8"},	
+    {"num":"9","color":true},{"num":"10","color":false},{"num":"11","color":true},{"num":"12","color":true},
+	{"num":"13","color":false},{"num":"14","color":true},{"num":"15","color":true},{"num":"16","color":true},
+	{"num":"17","color":false},{"num":"18","color":true},{"num":"19","color":true},{"num":"20","color":true},
+	{"num":"21","color":false},{"num":"14","color":true},{"num":"15","color":true},{"num":"24","color":true},
+	{"num":"25","color":false},{"num":"18","color":true},{"num":"19","color":true},{"num":"28","color":true},
+	{"num":"29","color":false},{"num":"14","color":true},{"num":"15","color":true},{"num":"32","color":true},
+	
+	{"num":"1","color":true,"column":"doc-1",'id':'doc-1-1',"group":"1","time":"1"},{"num":"2","color":false,"column":"doc-1",'id':'doc-1-2',"group":"2","time":"1"},{"num":"3","color":true,"column":"doc-1",'id':'doc-1-3',"group":"1","time":"3"},{"num":"4","color":true,"column":"doc-1",'id':'doc-1-4',"group":"1","time":"4"},
+	{"num":"5","color":false,"column":"doc-1",'id':'doc-1-5',"group":"1","time":"5"},{"num":"6","color":true,"column":"doc-1",'id':'doc-1-6',"group":"1","time":"6"},{"num":"7","color":true,"column":"doc-1",'id':'doc-1-7',"group":"2","time":"7"},{"num":"8","color":true,"column":"doc-1",'id':'doc-1-8',"group":"1","time":"8"},	
+    {"num":"9","color":true},{"num":"10","color":false},{"num":"11","color":true},{"num":"12","color":true},
+	{"num":"13","color":false},{"num":"14","color":true},{"num":"15","color":true},{"num":"16","color":true},
+	{"num":"17","color":false},{"num":"18","color":true},{"num":"19","color":true},{"num":"20","color":true},
+	{"num":"21","color":false},{"num":"14","color":true},{"num":"15","color":true},{"num":"24","color":true},
+	{"num":"25","color":false},{"num":"18","color":true},{"num":"19","color":true},{"num":"28","color":true},
+	{"num":"29","color":false},{"num":"14","color":true},{"num":"15","color":true},{"num":"32","color":true},
+        ],
+}
+
+	$(function(){
+		//输出医生信息
+		$.each(data.doctor,function(i,data){
+			$('.trfirst').append('<td colspan="4">'+data.name+'</td>')
+		});
+		//输出患者信息
+		$.each(data.patient,function(i,data){ 
+			if(data.num%8==0){
+				$(' .tr8').append('<td data-column="'+data.column+'" data-group="'+data.group+'" time="'+data.time+'" num="'+data.num+'" id="'+data.id+'" style="" data-toggle="modal" data-target="#myModal"></td>')
+			}else{
+				$(' .tr'+data.num%8).append('<td data-column="'+data.column+'" data-group="'+data.group+'" time="'+data.time+'" num="'+data.num+'" id="'+data.id+'" style="" data-toggle="modal" data-target="#myModal"></td>')
+			}				 
+                             
+        });
+         
+        //给每一个td绑定事件
+        var doc;//定义一个全局变量，用于接收 select的值    
+		$("#timetable .trfirst ").siblings().find("td").click(function(event){
+			doc=$(this);
+		});
+       
+       //改变弹出框选择时间颜色
+	$(".border-radus").on("click",function(index){
+		$(this).addClass("newactive").siblings().removeClass("newactive");	
+
+		//doc.addClass("tfclass");//给doc新增class;
+		//console.info($(this).text());
+			
+		//获取时间
+	});	
+	
+    //点击确定的事件
+	$(".btnsure").on("click",function(){
+		var num = $('.newactive').attr('data-value');//15 1 、30  2
+		var docColum = doc.attr('data-column');//"column":"doc-1"
+		var docNum = doc.attr('num');//"num":"1"
+		for(var i=0;i<num;i++){
+			var tempnum =docNum*1+i;
+			$('#'+docColum+'-'+tempnum).addClass("table-active");//拼接td的id 并改变doc-1-1的背景色
+			
+			//判断其下一个是否有颜色
+				
+		}
+		var valoption=$(".seloption").val();//获得select的值
+		doc.text(valoption);//给doc改变文字内容		 	 
+	});	
+	
+	
+	});
+</script>
+	</body>
+</html>

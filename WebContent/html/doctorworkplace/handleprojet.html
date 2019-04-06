@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>处置项目</title>
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>		
+		<link rel="stylesheet" type="text/css" href="../../css/his.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-11">
+					<div class="container-fluid ">
+			   			<div class="row">
+			   				<div class="col-sm-2" style="line-height: 30px;">
+			   					<a href="#">返回 /</a>						
+								<a href="#">处置项目</a>		
+			   				</div>	
+			   				<div class="col-sm-2">
+								<button type="button" class="btn btn-block btn-success"><a href="" style="color: #FFFFFF;">病历记录</a></button>
+							</div>
+			   			</div>	   			
+			   		</div>
+		   		<hr />		   		
+					<div class="col-sm-3">
+						<div class="frm-group">
+							<span>患者姓名：</span><span>陆小曼</span>
+						</div>		   				
+		   		    </div>	   			
+		   			<div class="col-sm-3">
+		   				<div class="form-group">
+		   					<span>手机号码：</span><span>13732700675</span>
+		   				</div>			   				
+		   			</div>	
+		   			<div class="col-sm-3">
+		   				<div class="form-group">
+		   					<span>病历编号：</span><span>1373270067500</span>
+		   				</div>			   				
+		   			</div>			   			
+		   			<br class="clear" />		   			
+		   			<!--table START-->		   			
+   					<div class="col-sm-2 allborder addoverflow">		   			 	
+				    	<div class="row" id="">
+				    		<ul class="nav nav-pills nav-stacked bigtabbtn" id="bigtabbtn">
+							   <li class="active" data-toggle = "modal" data-target =".bs-example-modal-lg"><a href="#" >常用处置</a></li>
+							   <li data-toggle = "modal" data-target =".bs-example-modal-lg"><a href="#">检查类</a></li>
+							   <li><a href="#ios">一般治疗</a></li>
+							   <li><a href="#">牙周类</a></li>
+							   <li><a href="#">牙体类</a></li>
+							   <li><a href="#">牙槽颔面外科</a></li>	
+							   <li><a href="#">药品类</a></li>
+							   <li><a href="#">护理产品</a></li>
+							   <li><a href="#">检验项目</a></li>
+							   <li><a href="#">儿牙类</a></li>
+							   <li><a href="#">修复类</a></li>
+							   <li><a href="#">种植类</a></li>
+							   <li><a href="#">矫正类</a></li>
+							</ul>
+				    	</div>				    						    
+		   			</div>
+		   			<div class="col-sm-10 tabbox">
+		   			 	<div id="myTabContent" class="tab-content bigtabcon">
+		   			 		<form  class="form-horizontal" role="form">
+		   			 			<table class="table table-bordered" style="word-break:break-all; word-wrap:break-all;">						  
+								   <thead>
+								      <tr>
+								         <th>一级分类</th>
+								         <th>二级分类</th>
+								         <th>牙位</th>
+								         <th>处置名称</th>
+								         <th>单价</th>
+								         <th>单位</th>
+								         <th>数量</th>
+								         <th>金额</th>							         
+								      </tr>
+								   </thead>
+								   <tbody>
+								      <tr class="mytr">
+								         <td>Tanmay</td>
+								         <td>Bangalore</td>
+								         <td class="tddiv" id="tdval" data-toggle="modal" data-target="#myModal">11,12,13</td>
+								         <td >Tanmay</td>
+								         <td>Bangalore</td>
+								         <td>560001</td>
+								         <td>
+								         	<div class="col-sm-1">
+								         		<div class="row">
+								         			<button type="button" class="btn btn-block">+</button>
+								         		</div>
+								         	</div>					         	
+								         	<div class="col-sm-2" style="margin: 0 5px;">
+								         		<div class="row">
+								         			<input class="form-control" type="text" name="" id="" value="1" />
+								         		</div>
+								         	</div>
+								         	<div class="col-sm-1">
+								         		<div class="row">
+								         			<button type="button" class="btn btn-block">-</button>
+								         		</div>
+								         	</div>
+								         </td>
+								         <td>Bangalore</td>							         
+								      </tr>
+								      <tr class="mytr">
+								         <td>Sachin</td>
+								         <td>Mumbai</td>
+								         <td class="tddiv" data-toggle="modal" data-target="#myModal">400003</td>
+								      </tr>
+								      <tr>
+								         <td>Uma</td>
+								         <td>Pune</td>
+								         <td>411027</td>
+								      </tr>
+								   </tbody>
+								</table>
+								<div class="col-sm-6 pull-right">
+									<div class="form-group">
+								      <label for="firstname" class="col-sm-4 control-label">处置小计</label>
+								      <div class="col-sm-7">
+								      	<i style="position: absolute;left: 0;bottom: 5px;">￥</i>
+								        <input style="border: 0;background-color: white;" type="text" class="form-control" id="firstname" 
+                                         placeholder="" readonly="readonly" value="1030.50">
+								      </div>
+								    </div>
+								    <div class="form-group">
+								      <label for="firstname" class="col-sm-4 control-label">折扣金额</label>
+								      <div class="col-sm-7">
+								      	<i style="position: absolute;left: 0;bottom: 5px;">￥</i>
+								        <input  type="text" class="form-control" id="firstname" 
+                                         placeholder=""  value="30.50">
+								      </div>
+								    </div>
+								    <div class="form-group">
+								      <label for="firstname" class="col-sm-4 control-label">合计费用</label>
+								      <div class="col-sm-7">
+								      	<i style="position: absolute;left: 0;bottom:5px;">￥</i>
+								        <input  type="text" class="form-control" id="firstname" 
+                                         placeholder=""  value="1000">
+								      </div>
+								    </div>
+								    <div class="col-sm-6">
+								    	<button type="button" class="btn btn-block btn-success">清空</button>
+								    </div>
+								     <div class="col-sm-6">
+								    	<button type="button" class="btn btn-block btn-success">完成处置</button>
+								    </div>								    
+								</div>							
+		   			 		</form>						   
+		   			    </div>		   							
+				    </div>		   						   				   			
+			    </div>
+		    </div>	
+		</div>
+		<!--选择处置项 模态框（Modal） -->
+		<div class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mylargeModalLabel" aria-hidden="true" data-backdrop="static">
+        	<div class="modal-dialog modal-lg">
+        		<div class="modal-content">
+        			<div class="col-sm-12" style="z-index: 100;margin-bottom: 10px;">				 								   			
+		   			<!--table START-->
+			   			<div class="col-sm-12" style="background-color: #F5F5F5;">		   				
+		   					<div class="container-fluid text-center">
+		   						<h3>选择处置项</h3>
+		   					</div>
+		   					<div class="col-sm-2 allborder">		   			 	
+						    	<div class="row" id="ajaxtab">
+						    		<ul class="nav nav-pills nav-stacked tabbtn">
+									   <li class="active"><a href="commonuse.html" >保健类</a></li>
+									   <li><a href="commonuse.html">洁牙</a></li>
+									   <li><a href="#ios" >麻醉</a></li>
+									   <li><a href="#">美白</a></li>
+									   <li><a href="#">余弗</a></li>
+									   <li><a href="#">窝沟封闭</a></li>							   
+									</ul>
+						    	</div>				    						    
+				   			 </div>
+				   			 <!--右侧内容-->
+				   			<div class="col-sm-10 tabbox">
+				   			 	<div id="myTabContent" class="tab-content tabcon">
+								   
+				   			    </div>		   							
+						    </div>	
+						    <!--右侧内容-->
+			   			</div>		   			
+			        </div>
+			        <br class="clear" />
+			        <div class="modal-content">
+	        			<div class="modal-footer">
+			            <button type="button" class="btn btn-default" 
+			               data-dismiss="modal">关闭
+			            </button>			            
+			         </div>
+        		</div>       	
+        		</div>
+        	</div>
+		</div>   
+		<!--选择处置项 模态框（Modal） -->
+		<!-- 牙位选择模态框（Modal） -->
+		<div class="modal  fade" id="myModal" tabindex="-1" role="dialog" 
+		   aria-labelledby="myModalLabel" aria-hidden="true"  data-backdrop="static">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+			        <div class="container-fluid">
+						<div class="col-sm-12 addbg-color middle" style="background-color: #dbe0e4; margin-top: 10px;padding-bottom:10px;">
+							<div class="row">
+								<div class="col-sm-12 text-center">
+									<h4>选择牙位</h4>									
+								</div>
+								<div class="col-sm-11 middle allborder clear addzoom" style="background-color: #FFFFFF;padding: 10px 0;">
+									<div class="row">
+										<div class="col-sm-11 middle allborder">
+										  <div class="row">
+										  	<div class="col-sm-6  border-right add-border-btn" style="border-bottom: 1px solid black;">	
+												<div class="row row-xs-1 upaddbg">
+													<div class="col-xs-1 up" data-value="1">1</div>
+													<div class="col-xs-1 up" data-value="2">2</div>
+													<div class="col-xs-1 up" data-value="3">3</div>
+													<div class="col-xs-1 up" data-value="4">4</div>
+													<div class="col-xs-1 up" data-value="5">5</div>
+													<div class="col-xs-1 up" data-value="6">6</div>
+													<div class="col-xs-1 up" data-value="7">7</div>
+													<div class="col-xs-1 up" data-value="8">8</div>
+												</div>							  							 
+										    </div>	
+										    <div class="col-sm-6 " style="border-bottom: 1px solid black;">	
+												<div class="row row-xs-1 upaddbg">
+													<div class="col-xs-1 up" data-value="9" style="margin-left:2px;">9</div>
+													<div class="col-xs-1 up" data-value="10">10</div>
+													<div class="col-xs-1 up" data-value="11">11</div>
+													<div class="col-xs-1 up" data-value="12">12</div>
+													<div class="col-xs-1 up" data-value="13">13</div>
+													<div class="col-xs-1 up" data-value="14">14</div>
+													<div class="col-xs-1 up" data-value="15">15</div>
+													<div class="col-xs-1 up" data-value="16">16</div>
+												</div>							  							 
+										    </div>
+										    <div class="col-sm-6  border-right add-border-btm">	
+												<div class="row row-xs-1 downaddbg">
+													<div class="col-xs-1 down" data-value="17">17</div>
+													<div class="col-xs-1 down" data-value="18">18</div>
+													<div class="col-xs-1 down" data-value="19">19</div>
+													<div class="col-xs-1 down" data-value="20">20</div>
+													<div class="col-xs-1 down" data-value="21">21</div>
+													<div class="col-xs-1 down" data-value="22">22</div>
+													<div class="col-xs-1 down" data-value="23">23</div>
+													<div class="col-xs-1 down" data-value="24">24</div>
+												</div>				  							 
+										    </div>	
+										   <div class="col-sm-6 ">	
+												<div class="row row-xs-1 downaddbg">
+													<div class="col-xs-1 down" data-value="25" style="margin-left:2px;">25</div>
+													<div class="col-xs-1 down" data-value="26">26</div>
+													<div class="col-xs-1 down" data-value="27">27</div>
+													<div class="col-xs-1 down" data-value="28">28</div>
+													<div class="col-xs-1 down" data-value="29">29</div>
+													<div class="col-xs-1 down" data-value="30">30</div>
+													<div class="col-xs-1 down" data-value="31">31</div>
+													<div class="col-xs-1 down" data-value="32">32</div>
+												</div>								 
+										   </div>	
+										  </div>
+									    </div>						
+									</div>						
+								</div>
+								<div class="kong"></div>
+								<div class="col-sm-10 text-center col-sm-offset-1 ">
+									<div class="row">
+										<div class="col-sm-10">
+										<div class="row">
+											<div class="col-sm-3 ">
+												<div class="row">
+													<button id="all" type="button" class="toothbtn btn btn-block btn-success">全口</button>
+												</div>								
+											</div>
+											<div class="col-sm-3 ">
+												<button id="half-up" type="button" class="toothbtn btn btn-block btn-success">上半口</button>
+											</div>
+											<div class="col-sm-3 ">
+												<button id="half-down" type="button" class="toothbtn btn btn-block btn-success">下半口</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2 pull-right">
+										<button type="button" class="btn btn-block btn-success" data-dismiss="modal">确定</button>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			        <div class="modal-footer">		        
+			        </div>
+			    </div><!-- /.modal-content -->
+			</div>
+		</div><!-- /.modal -->		
+		<!-- 牙位选择模态框（Modal）end -->			
+		<script src="../../js/jquery-2.1.4.min.js"></script>
+		<script src="../../js/bootstrap.min.js"></script>
+		<script>
+			$(function(){
+				var list=$(".bigtabbtn li");
+				list.click(function(){
+				$(this).addClass("active").siblings().removeClass("active");
+				});
+								
+			});					
+			
+			$(function(){				
+		    //li列表 ajax请求
+		    $.ajax({
+				type:"get",
+				url:"text2.php",					
+				success:function(data){
+				var news=data.news;
+				var len=news.length;
+				var str='';
+				for (var i=0;i<len;i++) {
+					str+="<li>"+news[i]+"</li>";
+				}
+				
+				$("#bigtabbtn").html(str);
+				console.info(data);
+				},
+				error:function(a,b,c){
+					console.info(a);
+					console.info(b);
+					console.info(c);
+				}
+				
+			});
+			
+			//高亮
+			$(".tabbtn li a").click(function(){
+				$(this).parent().addClass("active").siblings().removeClass("active");
+			});	
+			
+			//ajax 选项卡
+			$('#ajaxtab .tabbtn li a').click(function(){				
+			var thiscity = $(this).attr("href");//attr,设置被选元素的属性和值。			
+			$('.tabbox .tabcon').load(thiscity);	
+			return false;
+			});
+			$('#ajaxtab .tabbtn li a').eq(0).trigger("click");//第一个默认为点击状态，让内容显示出来
+			//trigger()规定被选元素的触发方式，
+			});
+			
+			//牙位选择
+		    $(function(){	
+				//全口
+				$("#all").click(function(){					
+				$(".col-sm-6 .col-xs-1").css("background","gray");		
+				$(".col-sm-6 .col-xs-1").addClass("myselected");//给选中的项添加class myselected;	
+				});
+				//上半口
+				$("#half-up").click(function(){	
+					$(".col-xs-1").filter(".down").css("background","");	
+					$(".upaddbg .col-xs-1").css("background","gray");
+					$(".upaddbg .col-xs-1").addClass("myselected");//给选中的项添加class myselected;
+					$(".downaddbg .col-xs-1").removeClass("myselected");//移除下半口的class
+				});
+				//下半口
+				$("#half-down").click(function(){
+					$(".col-xs-1").filter(".up").css("background","")
+					$(".downaddbg .col-xs-1").css("background","gray");
+					$(".downaddbg .col-xs-1").addClass("myselected");
+					$(".upaddbg .col-xs-1").removeClass("myselected");//移除上半口的class
+				});	
+				
+				//选择单个牙齿
+				$(".col-sm-6 .col-xs-1").click(function(){
+					$(this).css("background","gray");
+					$(this).addClass("myselected");
+				});
+				//取值和赋值
+				$(".pull-right button").click(function(){
+					var list=$(".col-sm-6 .col-xs-1");//
+					var num = "";//定义一个变量
+					$($(".myselected")).each(function(){//给每一个有myselected的牙齿添加事件
+						console.info($(this).attr('data-value'));
+						num = num+$(this).attr('data-value')+",";//获取牙齿的value值
+						$(this).removeClass('myselected');//移除class 清除td的值
+					});
+					console.info(num.substr(0,num.length-1));
+					
+// 					console.info(list);
+					list.css("background","");//清空背景色
+					$("#tdval").text(num.substr(0,num.length-1));//给表格项添加值
+					/*$(".tddiv").click(function(event){
+						$(this).text(num.substr(0,num.length-1));//给表格项添加值
+					});*/
+					
+				});								
+        
+			});
+		</script>
+	</body>
+</html>

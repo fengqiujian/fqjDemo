@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.enjoyhis.persistence.his.dao.ReportMapper" >
+	<sql id="Where_Clause" >
+		<where>
+			1 = 1 
+			<if test="sqlStr !=null">
+			  ${sqlStr}
+			</if>
+		</where>
+	</sql>
+	
+	<sql id="OrderBy_Clause">
+		<if test="sqlSort != null" >
+		  order by ${sqlSort}
+		</if>
+	</sql>
+	
+	<sql id="Limit_Clause">
+		<if test="limitStart != null and limitCount != null" >
+		  limit ${limitStart}, ${limitCount}
+		</if>
+	</sql>
+
+	<select id="getChargeDetailist" resultType="map" parameterType="com.enjoyhis.persistence.base.DBRecord">
+		SELECT 
+			DATE_FORMAT(create_time,'%Y年%m月%d日') AS zjri , 
+			pat_id AS patId, 
+			(SELECT pat_name FROM his_patient WHERE id = pat_id) AS hzName, 
+			(SELECT employee_name FROM his_employee WHERE id =doc_id) AS docName , 
+			statement_itemid AS statementItemid, 
+			total_amount AS totalAmount, 
+			id,
+			old_statement_code as oldCode
+		FROM his_statement 
+		<include refid="Where_Clause" /> <include refid="OrderBy_Clause" />  <include refid="Limit_Clause" /> 
+	</select>
+	<select id="getWriteOfflist" resultType="map" parameterType="com.enjoyhis.persistence.base.DBRecord">
+
+SELECT 
+	DATE_FORMAT(a.`create_time`,'%Y年%m月%d日') AS sj,
+	(SELECT pat_no FROM his_patient WHERE id =a.`pat_id`) AS blbh,
+	(SELECT pat_name FROM his_patient WHERE id =a.`pat_id`)  AS hzxm, 
+	(SELECT employee_name FROM his_employee WHERE id =a.`doc_id`) AS ys, 
+	CASE a.`account_type` WHEN 1 THEN '挂号' WHEN 2 THEN '处置收费'
+	 WHEN 3 THEN '收欠款' WHEN 4 THEN '结算单调整' WHEN 9 THEN '预存'
+	  WHEN 10 THEN '退预存' WHEN 11 THEN '预存转账' WHEN 12 THEN '处置单调整' WHEN 13 THEN '会计退费' END AS lx,
+	a.`statement_itemid` AS czdid ,
+	(SELECT item_amount FROM his_statement_item WHERE id = a.`statement_itemid`) AS czdze ,
+	a.`id` AS sfdbh ,
+	a.`old_statement_code` AS sfdbh2 ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+(SELECT pay_type FROM his_payment WHERE type_code = his_statement_charge.payment_type AND his_statement_charge.`statement_id` = a.`id`) = 'SCHD' OR
+(SELECT pay_type FROM his_payment WHERE type_code = his_statement_charge.payment_type AND his_statement_charge.`statement_id` = a.`id`) = 'ZKYH' 
+AND his_statement_charge.`statement_id` = a.`id`) AS yh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'jsyh' 
+AND his_statement_charge.`statement_id` = a.`id`)AS jsyh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'zgyh' 
+AND his_statement_charge.`statement_id` = a.`id`)AS zgyh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'zsyh' 
+AND his_statement_charge.`statement_id` = a.`id`)AS zsyh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'tl' 
+AND his_statement_charge.`statement_id` = a.`id`) AS tl ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'lkl' 
+AND his_statement_charge.`statement_id` = a.`id`) AS lkl ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'gsyh' 
+AND his_statement_charge.`statement_id` = a.`id`) AS gsyh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'bjyh' 
+AND his_statement_charge.`statement_id` = a.`id`) AS bjyh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'ylsw' 
+AND his_statement_charge.`statement_id` = a.`id`) AS ylsw ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'msyh' 
+AND his_statement_charge.`statement_id` = a.`id`) AS msyh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'pfyh' 
+AND his_statement_charge.`statement_id` = a.`id`) AS pfyh ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_subtype = 'yhjjk' 
+AND his_statement_charge.`statement_id` = a.`id`) AS yhjjk ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'wx' 
+AND his_statement_charge.`statement_id` = a.`id`) AS wx ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'xj' 
+AND his_statement_charge.`statement_id` = a.`id`) AS xj ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'zp' 
+AND his_statement_charge.`statement_id` = a.`id`) AS zp ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+(his_statement_charge.payment_type = 'BFTBX' OR his_statement_charge.payment_type = 'GNYLBX' OR his_statement_charge.payment_type = 'GJYLBX')
+AND his_statement_charge.`statement_id` = a.`id`) AS bx ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+(his_statement_charge.payment_type = 'yskzr' )
+AND his_statement_charge.`statement_id` = a.`id`) AS yskzr ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'TG' 
+AND his_statement_charge.`statement_id` = a.`id`) AS tg ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'QK' 
+AND his_statement_charge.`statement_id` = a.`id`) AS qf ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'ML' 
+AND his_statement_charge.`statement_id` = a.`id`) AS ml ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'HZ' 
+AND his_statement_charge.`statement_id` = a.`id`) AS hz ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'YKPT' 
+AND his_statement_charge.`statement_id` = a.`id`) AS ykpt ,
+	(SELECT SUM(his_statement_charge.`real_amount`) FROM his_statement_charge WHERE 
+his_statement_charge.payment_type = 'YKYYWX' 
+AND his_statement_charge.`statement_id` = a.`id`) AS ykyywx ,
+	a.pay_amount AS sfdze ,
+	(SELECT parent_id FROM his_statement_item WHERE id = a.`statement_itemid`) AS yczdh ,		
+	a.remark AS bz 
+FROM his_statement AS a 
+		<include refid="Where_Clause" /> <include refid="OrderBy_Clause" />  <include refid="Limit_Clause" /> 
+	</select>
+	
+</mapper>

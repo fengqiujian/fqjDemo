@@ -1,0 +1,90 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>时间表</title>
+<meta charset="utf-8"  />
+<style type="text/css">
+	table  td{
+		width:100px;
+		border-right:1px solid green;
+		border-bottom:1px solid green;
+	}
+	.selectstyle{
+		background-color: red;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+
+</head>
+<body>
+<table id="timetable" class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>2016年9月1日</td>
+			<td>小花</td>
+			<td>张三</td>
+			<td>小花</td>
+			<td>张三</td>
+			<td>小花</td>
+			<td>张三</td>
+		</tr>
+		<tr data-time="07:00">
+			<td>7：00</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr data-time="07:15">
+			<td>15</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr  data-time="07:30">
+			<td>30</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr data-time="07:45">
+			<td>45</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr  data-time="08:00">
+			<td>8：00</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr  data-time="08:15">
+			<td>15</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr data-time="08:30">
+			<td>30</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr data-time="08:45">
+			<td>45</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<script src="../../js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	function matchTime(startTime,endTime,item){
+	var cc=$("#timetable tr[data-time='"+startTime+"']").nextUntil($("#timetable tr[data-time='"+endTime+"']"));
+	$("#timetable tr[data-time='"+startTime+"']").children("td").eq(item).addClass('selectstyle');
+	$(cc[0]).children("td").eq(item).addClass('selectstyle');//7:15
+	$(cc[1]).children("td").eq(item).addClass('selectstyle');//7:30
+	$(cc[2]).children("td").eq(item).addClass('selectstyle');//7:45
+	$(cc[3]).children("td").eq(item).addClass('selectstyle');//7:45
+	}
+	matchTime("07:00","08:15","1");
+
+})
+</script>
+</body>
+</html>	

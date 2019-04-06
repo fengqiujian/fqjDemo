@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.enjoyhis.persistence.his.dao.HisStatementMapper" >
+  <resultMap id="BaseResultMap" type="com.enjoyhis.persistence.his.po.HisStatement" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="pat_id" property="patId" jdbcType="BIGINT" />
+    <result column="account_type" property="accountType" jdbcType="INTEGER" />
+    <result column="reg_id" property="regId" jdbcType="BIGINT" />
+    <result column="statement_itemid" property="statementItemid" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="unit_code" property="unitCode" jdbcType="INTEGER" />
+    <result column="total_amount" property="totalAmount" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="doc_id" property="docId" jdbcType="BIGINT" />
+    <result column="operator" property="operator" jdbcType="BIGINT" />
+    <result column="pay_amount" property="payAmount" jdbcType="DECIMAL" />
+    <result column="debt_amount" property="debtAmount" jdbcType="DECIMAL" />
+    <result column="payoff" property="payoff" jdbcType="DECIMAL" />
+    <result column="print_num" property="printNum" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="flag" property="flag" jdbcType="INTEGER" />
+    <result column="act_id" property="actId" jdbcType="INTEGER" />
+    <result column="old_statement_code" property="oldStatementCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pat_id, account_type, reg_id, statement_itemid, parent_id, create_time, modify_time, 
+    unit_code, total_amount, remark, doc_id, operator, pay_amount, debt_amount, payoff, 
+    print_num, status, flag, act_id, old_statement_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from his_statement
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from his_statement
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.enjoyhis.persistence.his.po.HisStatement" >
+    insert into his_statement (id, pat_id, account_type, 
+      reg_id, statement_itemid, parent_id, 
+      create_time, modify_time, unit_code, 
+      total_amount, remark, doc_id, 
+      operator, pay_amount, debt_amount, 
+      payoff, print_num, status, 
+      flag, act_id, old_statement_code
+      )
+    values (#{id,jdbcType=BIGINT}, #{patId,jdbcType=BIGINT}, #{accountType,jdbcType=INTEGER}, 
+      #{regId,jdbcType=BIGINT}, #{statementItemid,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}, #{unitCode,jdbcType=INTEGER}, 
+      #{totalAmount,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{docId,jdbcType=BIGINT}, 
+      #{operator,jdbcType=BIGINT}, #{payAmount,jdbcType=DECIMAL}, #{debtAmount,jdbcType=DECIMAL}, 
+      #{payoff,jdbcType=DECIMAL}, #{printNum,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{flag,jdbcType=INTEGER}, #{actId,jdbcType=INTEGER}, #{oldStatementCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.enjoyhis.persistence.his.po.HisStatement" >
+    insert into his_statement
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="patId != null" >
+        pat_id,
+      </if>
+      <if test="accountType != null" >
+        account_type,
+      </if>
+      <if test="regId != null" >
+        reg_id,
+      </if>
+      <if test="statementItemid != null" >
+        statement_itemid,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="unitCode != null" >
+        unit_code,
+      </if>
+      <if test="totalAmount != null" >
+        total_amount,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="docId != null" >
+        doc_id,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="payAmount != null" >
+        pay_amount,
+      </if>
+      <if test="debtAmount != null" >
+        debt_amount,
+      </if>
+      <if test="payoff != null" >
+        payoff,
+      </if>
+      <if test="printNum != null" >
+        print_num,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="actId != null" >
+        act_id,
+      </if>
+      <if test="oldStatementCode != null" >
+        old_statement_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="patId != null" >
+        #{patId,jdbcType=BIGINT},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=BIGINT},
+      </if>
+      <if test="statementItemid != null" >
+        #{statementItemid,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unitCode != null" >
+        #{unitCode,jdbcType=INTEGER},
+      </if>
+      <if test="totalAmount != null" >
+        #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="docId != null" >
+        #{docId,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=BIGINT},
+      </if>
+      <if test="payAmount != null" >
+        #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="debtAmount != null" >
+        #{debtAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payoff != null" >
+        #{payoff,jdbcType=DECIMAL},
+      </if>
+      <if test="printNum != null" >
+        #{printNum,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="actId != null" >
+        #{actId,jdbcType=INTEGER},
+      </if>
+      <if test="oldStatementCode != null" >
+        #{oldStatementCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.enjoyhis.persistence.his.po.HisStatement" >
+    update his_statement
+    <set >
+      <if test="patId != null" >
+        pat_id = #{patId,jdbcType=BIGINT},
+      </if>
+      <if test="accountType != null" >
+        account_type = #{accountType,jdbcType=INTEGER},
+      </if>
+      <if test="regId != null" >
+        reg_id = #{regId,jdbcType=BIGINT},
+      </if>
+      <if test="statementItemid != null" >
+        statement_itemid = #{statementItemid,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unitCode != null" >
+        unit_code = #{unitCode,jdbcType=INTEGER},
+      </if>
+      <if test="totalAmount != null" >
+        total_amount = #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="docId != null" >
+        doc_id = #{docId,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=BIGINT},
+      </if>
+      <if test="payAmount != null" >
+        pay_amount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="debtAmount != null" >
+        debt_amount = #{debtAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payoff != null" >
+        payoff = #{payoff,jdbcType=DECIMAL},
+      </if>
+      <if test="printNum != null" >
+        print_num = #{printNum,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="actId != null" >
+        act_id = #{actId,jdbcType=INTEGER},
+      </if>
+      <if test="oldStatementCode != null" >
+        old_statement_code = #{oldStatementCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.enjoyhis.persistence.his.po.HisStatement" >
+    update his_statement
+    set pat_id = #{patId,jdbcType=BIGINT},
+      account_type = #{accountType,jdbcType=INTEGER},
+      reg_id = #{regId,jdbcType=BIGINT},
+      statement_itemid = #{statementItemid,jdbcType=BIGINT},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      unit_code = #{unitCode,jdbcType=INTEGER},
+      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      remark = #{remark,jdbcType=VARCHAR},
+      doc_id = #{docId,jdbcType=BIGINT},
+      operator = #{operator,jdbcType=BIGINT},
+      pay_amount = #{payAmount,jdbcType=DECIMAL},
+      debt_amount = #{debtAmount,jdbcType=DECIMAL},
+      payoff = #{payoff,jdbcType=DECIMAL},
+      print_num = #{printNum,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      flag = #{flag,jdbcType=INTEGER},
+      act_id = #{actId,jdbcType=INTEGER},
+      old_statement_code = #{oldStatementCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+	<!--
+	addtional:
+		insert add tag:  useGeneratedKeys="true" keyProperty="id"
+	then
+		add follows:
+	-->
+	<sql id="Where_Clause" >
+		<where>
+			<if test="id != null" >
+			  and id = #{id,jdbcType=BIGINT}
+			</if>
+			<if test="patId != null" >
+			  and pat_id = #{patId,jdbcType=BIGINT}
+			</if>
+			<if test="accountType != null" >
+			  and account_type = #{accountType,jdbcType=INTEGER}
+			</if>
+			<if test="regId != null" >
+			  and reg_id = #{regId,jdbcType=BIGINT}
+			</if>
+			<if test="statementItemid != null" >
+			  and statement_itemid = #{statementItemid,jdbcType=BIGINT}
+			</if>
+			<if test="parentId != null" >
+			  and parent_id = #{parentId,jdbcType=BIGINT}
+			</if>
+			<if test="createTime != null" >
+			  and create_time = #{createTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="modifyTime != null" >
+			  and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="unitCode != null" >
+			  and unit_code = #{unitCode,jdbcType=INTEGER}
+			</if>
+			<if test="totalAmount != null" >
+			  and total_amount = #{totalAmount,jdbcType=DECIMAL}
+			</if>
+			<if test="remark != null" >
+			  and remark = #{remark,jdbcType=VARCHAR}
+			</if>
+			<if test="docId != null" >
+			  and doc_id = #{docId,jdbcType=BIGINT}
+			</if>
+			<if test="operator != null" >
+			  and operator = #{operator,jdbcType=BIGINT}
+			</if>
+			<if test="payAmount != null" >
+			  and pay_amount = #{payAmount,jdbcType=DECIMAL}
+			</if>
+			<if test="debtAmount != null" >
+			  and debt_amount = #{debtAmount,jdbcType=DECIMAL}
+			</if>
+			<if test="payoff != null" >
+			  and payoff = #{payoff,jdbcType=DECIMAL}
+			</if>
+			<if test="printNum != null" >
+			  and print_num = #{printNum,jdbcType=INTEGER}
+			</if>
+			<if test="status != null" >
+			  and status = #{status,jdbcType=INTEGER}
+			</if>
+			<if test="flag != null" >
+			  and flag = #{flag,jdbcType=INTEGER}
+			</if>
+			<if test="actId != null" >
+			  and act_id = #{actId,jdbcType=INTEGER}
+			</if>
+			<if test="oldStatementCode != null" >
+        	  and old_statement_code = #{oldStatementCode,jdbcType=VARCHAR}
+      		</if>
+			<if test="sqlStr !=null">
+			  ${sqlStr}
+			</if>
+		</where>
+	</sql>
+	
+	<sql id="OrderBy_Clause">
+		<if test="sqlSort != null" >
+		  order by ${sqlSort}
+		</if>
+	</sql>
+	
+	<sql id="Limit_Clause">
+		<if test="limitStart != null and limitCount != null" >
+		  limit ${limitStart}, ${limitCount}
+		</if>
+	</sql>
+	
+	<select id="selectOne" resultMap="BaseResultMap" parameterType="com.enjoyhis.persistence.his.po.HisStatement">
+		select <include refid="Base_Column_List" /> from his_statement <include refid="Where_Clause" />
+	</select>
+	  
+	<select id="selectList" resultMap="BaseResultMap" parameterType="com.enjoyhis.persistence.his.po.HisStatement">
+		select <include refid="Base_Column_List" /> from his_statement <include refid="Where_Clause" /> <include refid="OrderBy_Clause" />  <include refid="Limit_Clause" /> 
+	</select>
+	
+	<select id="selectCount" resultType="java.lang.Integer" parameterType="com.enjoyhis.persistence.his.po.HisStatement">
+		select count(id) from his_statement <include refid="Where_Clause" />
+	</select>
+	
+	<delete id="deleteSelective" parameterType="com.enjoyhis.persistence.his.po.HisStatement" >
+		delete from his_statement <include refid="Where_Clause" />
+	</delete>
+	
+	<!--
+	follows is custom sql:
+	-->
+	
+	<select id="selectDateList" resultType="map" parameterType="com.enjoyhis.persistence.his.po.HisStatement">
+		SELECT DATE_FORMAT(create_time,'%Y年%m月%d日') AS times, (SELECT employee_name FROM his_employee WHERE id = doc_id) AS NAME , SUM(total_amount) AS czxje,(SUM(total_amount)-SUM(pay_amount)) AS yhje,SUM(pay_amount) AS shje,SUM(debt_amount) AS qkje FROM his_statement <include refid="Where_Clause" /> GROUP BY DATE_FORMAT(create_time,'%Y-%m-%d'),doc_id
+	</select>
+	
+</mapper>

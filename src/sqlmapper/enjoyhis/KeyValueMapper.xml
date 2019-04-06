@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enjoyhis.persistence.his.dao.KeyValueMapDao" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.enjoyhis.pojo.KeyValueMap" >
+	<result column="id" property="id"/>
+	<result column="name" property="name"/>
+</resultMap>
+       
+<!-- 为下拉列表提供信息  -->
+<select id="queryByTable"  resultMap="BaseResultMap" parameterType="Object">
+	select id, name from ${table} 
+</select>
+
+<select id="queryByTableAndColumn"  resultMap="BaseResultMap" parameterType="Object">
+	select id, ${column} AS name from ${table}
+</select>
+
+<!-- 为下拉列表提供信息，支持排序  -->
+<select id="queryByTableWithOrder" resultMap="BaseResultMap" parameterType="Object">
+	select id, name from ${table} order by ${order}
+</select>
+
+<!-- 为下拉列表提供信息，支持排序  -->
+<select id="queryByTableAndColumnWithOrder"  resultMap="BaseResultMap" parameterType="Object">
+	select id, ${column} AS name from ${table} order by ${order}
+</select>
+
+<!-- 为下拉列表提供信息，支持排序和条件筛选  -->
+<!-- <select id="query"  resultMap="BaseResultMap" parameterType="Object">
+	select ${keyColumn}, 
+		<if test="column != null and column != ''" >
+			${column} AS name
+		</if> 
+		from ${table} 
+		<if test="where != null and where != ''" >
+			where ${where}
+		</if> 
+		<if test="order != null and order != ''" >
+			order by ${order}
+		</if> 
+</select> -->
+<select id="query"  resultMap="BaseResultMap" parameterType="Object">
+	select ${column1} as id,${column2} as name from ${table}
+<!--	<if test="sqlcolumn!=null and sqlcolumn!='' and sqlvalue!=null and sqlvalue!=''">
+		where ${sqlcolumn} = ${sqlvalue}
+	</if>-->
+	<if test="wheresql!=null and wheresql!=''">
+		where ${wheresql}
+	</if>
+</select>
+
+<select id="querys"  resultMap="BaseResultMap" parameterType="Object">
+	select ${column1} as id,${column2} as name from ${table}
+<!--	<if test="sqlcolumn!=null and sqlcolumn!='' and sqlvalue!=null and sqlvalue!=''">
+		where ${sqlcolumn} = ${sqlvalue}
+	</if>-->
+	<if test="wheresql!=null and wheresql!=''">
+		where ${wheresql}
+	</if>
+</select>
+
+</mapper>   
